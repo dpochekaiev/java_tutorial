@@ -5,7 +5,8 @@ import static java.lang.System.*;
 public class MyFirstProgram {
 
 	public static void main (String[] args) {
-		out.println("Hello, world!");
+		hello();
+		helloUserName("Mike");
 		int i = 2 + 2;
 		out.println("2 + 2 = " + i);
 		out.println("3 + 3 = " + (3+3));
@@ -19,6 +20,16 @@ public class MyFirstProgram {
 
 		out.print("T"); out.print("his "); out.print("string");
 		out.print(" is "); out.println("concatenated.");
+		hello();hello();
+		helloUserName("Olga");
 	}
+
+	public static void hello () {
+	    out.println("Hello, world!");
+    }
+
+    public static void helloUserName (String userName) {
+        out.println("Hello, " + userName + "!");
+    }
 
 }
