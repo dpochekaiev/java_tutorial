@@ -24,13 +24,14 @@ public class MyFirstProgram {
 		helloUserName("Olga");
 
 		out.println();
-		double side = 1.5;
-		double sideA = 2;
-		double sideB = 3;
 
-		out.println("Sqare of " + side + " equals to " + area (side));
-		out.println("Area of rectangle with sides " + sideA + " and " + sideB + " equals to "
-				+ area (sideA, sideB));
+		Square someKvadrat = new Square(5);
+
+		Rectangle somePriamougolnik = new Rectangle(4, 3);
+
+		out.println("Area of a square with a " + someKvadrat.sideLength + " side equals to: " + someKvadrat.area());
+		out.println("Area of a rectangle with sides " + somePriamougolnik.sideALength + " and "
+				+ somePriamougolnik.sideBLength + " equals to: " + somePriamougolnik.area());
 	}
 
 	public static void hello () {
@@ -40,13 +41,5 @@ public class MyFirstProgram {
     public static void helloUserName (String userName) {
         out.println("Hello, " + userName + "!");
     }
-
-    public static double area (double sideSize) {
-		return sideSize * sideSize;
-	}
-
-	public static double area (double sideASize, double sideBSize) {
-		return sideASize * sideBSize;
-	}
 
 }
