@@ -14,15 +14,13 @@ public class GroupCreationTest {
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeClass(alwaysRun = true)
+    //@BeforeClass(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
         driver = new FirefoxDriver();
         baseUrl = "https://www.katalon.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
-
-    @Test
-    public void testUntitledTestCase() throws Exception {
+        
         driver.get("http://localhost/addressbook/group.php");
         driver.findElement(By.name("pass")).click();
         driver.findElement(By.name("pass")).clear();
@@ -31,6 +29,10 @@ public class GroupCreationTest {
         driver.findElement(By.name("user")).clear();
         driver.findElement(By.name("user")).sendKeys("admin");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
+    }
+
+    @Test
+    public void testGroupCreation() throws Exception {
         driver.findElement(By.linkText("groups")).click();
         driver.findElement(By.name("new")).click();
         driver.findElement(By.name("group_name")).click();
@@ -46,7 +48,8 @@ public class GroupCreationTest {
         driver.findElement(By.linkText("group page")).click();
     }
 
-    @AfterClass(alwaysRun = true)
+    //@AfterClass(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
