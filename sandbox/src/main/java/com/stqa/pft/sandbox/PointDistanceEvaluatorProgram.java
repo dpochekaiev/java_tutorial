@@ -2,7 +2,7 @@ package com.stqa.pft.sandbox;
 
 import static java.lang.System.*;
 
-public class PointDistanceEvaluator {
+public class PointDistanceEvaluatorProgram {
 
     public static void main (String[] args) {
         Point p1 = new Point(0,0);
