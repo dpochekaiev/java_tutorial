@@ -23,7 +23,7 @@ public class GroupCreationTest {
         login("admin", "secret");
     }
 
-    private void login(String userName, String userPassword) {
+    public void login(String userName, String userPassword) {
         driver.findElement(By.name("pass")).click();
         driver.findElement(By.name("pass")).clear();
         driver.findElement(By.name("pass")).sendKeys(userPassword);
