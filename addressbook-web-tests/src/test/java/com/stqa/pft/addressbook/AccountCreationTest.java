@@ -66,10 +66,10 @@ public class AccountCreationTest {
         driver.findElement(By.name("email")).sendKeys(accountMap.getEmailFirst());
         driver.findElement(By.name("bday")).click();
         new Select(driver.findElement(By.name("bday"))).selectByVisibleText(accountMap.getDayOfBirth());
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
+//        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
         driver.findElement(By.name("bmonth")).click();
         new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(accountMap.getMonthOfBirth());
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
+//        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
         driver.findElement(By.name("byear")).click();
         driver.findElement(By.name("byear")).clear();
         driver.findElement(By.name("byear")).sendKeys(accountMap.getYearOfBirth());
