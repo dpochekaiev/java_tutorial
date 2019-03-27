@@ -1,77 +1,38 @@
-package com.stqa.pft.addressbook;
+package com.stqa.pft.addressbook.appmanager;
 
+import com.stqa.pft.addressbook.model.AccountMap;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.fail;
 
-public class TestBase {
-    private WebDriver driver;
+public class ApplicationManager {
+    protected WebDriver driver;
+    private SessionHelper sessionHelper;
+    private NavigationManager navigationManager;
+    private GroupHelper groupHelper;
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    //@BeforeClass(alwaysRun = true)
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
+    public void init() {
         driver = new FirefoxDriver();
         baseUrl = "https://www.katalon.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         driver.get("http://localhost/addressbook/group.php");
-        login("admin", "secret");
+
+        groupHelper = new GroupHelper(driver);
+        navigationManager = new NavigationManager(driver);
+        sessionHelper = new SessionHelper(driver);
+
+        sessionHelper.login("admin", "secret");
     }
 
-    public void login(String userName, String userPassword) {
-        driver.findElement(By.name("pass")).click();
-        driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys(userPassword);
-        driver.findElement(By.name("user")).click();
-        driver.findElement(By.name("user")).clear();
-        driver.findElement(By.name("user")).sendKeys(userName);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
-    }
 
-    protected void returnToGroupPage() {
-        driver.findElement(By.linkText("group page")).click();
-    }
-
-    protected void submitGroupCreation() {
-        driver.findElement(By.name("submit")).click();
-    }
-
-    protected void fillGroupForm(GroupMap groupMap) {
-        driver.findElement(By.name("group_name")).click();
-        driver.findElement(By.name("group_name")).clear();
-        driver.findElement(By.name("group_name")).sendKeys(groupMap.getGroupName());
-        driver.findElement(By.name("group_header")).click();
-        driver.findElement(By.name("group_header")).clear();
-        driver.findElement(By.name("group_header")).sendKeys(groupMap.getGroupHeader());
-        driver.findElement(By.name("group_footer")).click();
-        driver.findElement(By.name("group_footer")).clear();
-        driver.findElement(By.name("group_footer")).sendKeys(groupMap.getGroupFooter());
-    }
-
-    protected void fillGroupForm(String groupName) {
-        driver.findElement(By.name("group_name")).click();
-        driver.findElement(By.name("group_name")).clear();
-        driver.findElement(By.name("group_name")).sendKeys(groupName);
-    }
-
-    protected void initGroupCreation() {
-        driver.findElement(By.name("new")).click();
-    }
-
-    protected void gotoGroupCreation() {
-        driver.findElement(By.linkText("groups")).click();
-    }
-
-    protected void fillAccountForm(AccountMap accountMap) {
+    public void fillAccountForm(AccountMap accountMap) {
         driver.findElement(By.name("firstname")).click();
         driver.findElement(By.name("firstname")).clear();
         driver.findElement(By.name("firstname")).sendKeys(accountMap.getFirst());
@@ -107,18 +68,16 @@ public class TestBase {
 
     }
 
-    protected void submitAccountCreation() {
+    public void submitAccountCreation() {
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
      //   driver.findElement(By.id("content")).click();
     }
 
-    protected void initAccountCreation() {
+    public void initAccountCreation() {
         driver.findElement(By.linkText("add new")).click();
     }
 
-    //@AfterClass(alwaysRun = true)
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void stop() {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -159,11 +118,11 @@ public class TestBase {
         }
     }
 
-    protected void deleteSelectedGroups() {
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test1'])[1]/following::input[2]")).click();
+    public GroupHelper getGroupHelper() {
+        return groupHelper;
     }
 
-    protected void selectGroup() {
-        driver.findElement(By.name("selected[]")).click();
+    public NavigationManager getNavigationManager() {
+        return navigationManager;
     }
 }
