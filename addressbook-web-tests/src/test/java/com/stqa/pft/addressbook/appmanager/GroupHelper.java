@@ -33,7 +33,8 @@ public class GroupHelper extends HelperBase{
     }
 
     public void deleteSelectedGroups() {
-        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test1'])[1]/following::input[2]"));
+     //   click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test1'])[1]/following::input[2]"));
+        click(By.xpath("//input[@type='submit' and @name='delete' and @value='Delete group(s)']"));
     }
 
     public void selectGroup() {
