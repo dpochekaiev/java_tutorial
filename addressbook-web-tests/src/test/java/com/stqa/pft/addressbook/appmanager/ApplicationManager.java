@@ -12,7 +12,7 @@ import static org.testng.Assert.fail;
 public class ApplicationManager {
     protected WebDriver driver;
     private SessionHelper sessionHelper;
-    private NavigationManager navigationManager;
+    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -25,7 +25,7 @@ public class ApplicationManager {
         driver.get("http://localhost/addressbook/group.php");
 
         groupHelper = new GroupHelper(driver);
-        navigationManager = new NavigationManager(driver);
+        navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
 
         sessionHelper.login("admin", "secret");
@@ -94,14 +94,6 @@ public class ApplicationManager {
         }
     }
 
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
 
     private String closeAlertAndGetItsText() {
         try {
@@ -122,7 +114,7 @@ public class ApplicationManager {
         return groupHelper;
     }
 
-    public NavigationManager getNavigationManager() {
-        return navigationManager;
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 }
