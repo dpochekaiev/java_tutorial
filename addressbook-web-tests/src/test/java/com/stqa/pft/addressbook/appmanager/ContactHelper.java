@@ -24,11 +24,13 @@ public class ContactHelper extends HelperBase {
         type(By.name("email"), accountMap.getEmailFirst());
 
 
-        driver.findElement(By.name("bday")).click();
-        new Select(driver.findElement(By.name("bday"))).selectByVisibleText(accountMap.getDayOfBirth());
+        selectDropdownValue(By.name("bday"), accountMap.getDayOfBirth());
 //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
-        driver.findElement(By.name("bmonth")).click();
-        new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(accountMap.getMonthOfBirth());
+
+        selectDropdownValue(By.name("bmonth"), accountMap.getMonthOfBirth());
+//        driver.findElement(By.name("bmonth")).click();
+//        new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(accountMap.getMonthOfBirth());
+
 //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
 
         type(By.name("byear"), accountMap.getYearOfBirth());
