@@ -8,9 +8,10 @@ public class AccountCreationTest extends TestBase {
     @Test
     public void testUntitledTestCase() throws Exception {
 
-        app.initAccountCreation();
-        app.fillAccountForm(new AccountMap("First", "M", "Surname", "Company", "Address", "5551234567", "dummy@mail.dot", "1", "January", "1900"));
-        app.submitAccountCreation();
+        app.getContactHelper().initAccountCreation();
+//        app.getContactHelper().fillAccountForm(new AccountMap("First", "M", "Surname", "Company", "Address", "5551234567", "dummy@mail.dot", "1", "January", "1900"));
+        app.getContactHelper().fillAccountForm(new AccountMap("Name", "", "Last", "", "", "", "dummy@mail.dot", "2", "February", "1988"));
+        app.getContactHelper().submitAccountCreation();
     }
 
 }
