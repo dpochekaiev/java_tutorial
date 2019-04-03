@@ -17,8 +17,8 @@ public class ContactModificationTest extends TestBase {
                 "EditedAddress",
                 "0800000111000",
                 "EdItEd@MaIl.DoT.cOm",
-                "9",
-                "April",
+              "",//  "9",
+              "",//  "April",
                 "1988");
 
         app.getNavigationHelper().gotoHomePage();

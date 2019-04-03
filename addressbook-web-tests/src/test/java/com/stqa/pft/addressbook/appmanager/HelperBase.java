@@ -32,8 +32,9 @@ public class HelperBase {
     }
 
     protected void selectDropdownValue(By locator, String dropdownValue) {
-//        AccountMap accountMap = ;
-        driver.findElement(locator).click();
-        new Select(driver.findElement(locator)).selectByVisibleText(dropdownValue);
+        if (dropdownValue != "") {
+            driver.findElement(locator).click();
+            new Select(driver.findElement(locator)).selectByVisibleText(dropdownValue);
+        }
     }
 }

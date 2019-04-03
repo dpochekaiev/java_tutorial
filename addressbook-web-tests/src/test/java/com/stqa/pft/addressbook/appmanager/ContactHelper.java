@@ -1,8 +1,8 @@
 package com.stqa.pft.addressbook.appmanager;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 public class ContactHelper extends HelperBase {
 
@@ -16,21 +16,11 @@ public class ContactHelper extends HelperBase {
         type(By.name("lastname"), accountMap.getSurname());
         type(By.name("company"), accountMap.getCompany());
         type(By.name("address"), accountMap.getAddress());
-
-        //TODO: :what this method for?
-//        click(By.name("theform"));
-
         type(By.name("home"), accountMap.getHomePhoneNumber());
         type(By.name("email"), accountMap.getEmailFirst());
-        selectDropdownValue(By.name("bday"), accountMap.getDayOfBirth());
-//        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
-        selectDropdownValue(By.name("bmonth"), accountMap.getMonthOfBirth());
-//        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
+        selectDropdownValue(By.name("bday"), accountMap.getDayOfBirth());  //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
+        selectDropdownValue(By.name("bmonth"), accountMap.getMonthOfBirth());  //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
         type(By.name("byear"), accountMap.getYearOfBirth());
-
-        //TODO: :what this method for?
-//        click(By.name("theform"));
-
     }
 
     public void submitContactCreation() {
@@ -44,7 +34,6 @@ public class ContactHelper extends HelperBase {
 
     public void EditContact() {
         click(By.xpath("(//tr)[1]/following::img[2]"));
-
 //        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='dummy@mail.dot'])[1]/following::img[2]"));
     }
 
@@ -55,4 +44,15 @@ public class ContactHelper extends HelperBase {
     public void returnToMainPage() {
         click(By.linkText("home page"));
     }
+
+    public void selectContact() {
+        click(By.name("selected[]"));
+    }
+
+    public void deleteSelectedContact() {
+        click(By.xpath("//input[@type='button' and @value='Delete']"));
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
 }
