@@ -7,7 +7,8 @@ public class GroupCreationTest extends TestBase {
 
     @Test
     public void testGroupCreation() throws Exception {
-        GroupMap testGroup = new GroupMap("test1", "test2", "test3");
+//        GroupMap testGroup = new GroupMap("test1", "test2", "test3");
+        GroupMap testGroup = new GroupMap("test1", null, null);
 
         app.getNavigationHelper().gotoGroupPage();
         app.getGroupHelper().initGroupCreation();

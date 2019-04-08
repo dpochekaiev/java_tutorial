@@ -17,9 +17,21 @@ public class HelperBase {
     }
 
     protected void type(By locator, String text) {
-        click(locator);
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
+//        if ((text != "") && text != null) {
+            click(locator);
+            String existingText = driver.findElement(locator).getAttribute("value");
+            if (!existingText.equals(text)) {
+                driver.findElement(locator).clear();
+                driver.findElement(locator).sendKeys(text);
+            }
+//        }
+    }
+
+    protected void selectDropdownValue(By locator, String dropdownValue) {
+        if ((dropdownValue != "") && dropdownValue != null){
+            driver.findElement(locator).click();
+            new Select(driver.findElement(locator)).selectByVisibleText(dropdownValue);
+        }
     }
 
     public boolean isAlertPresent() {
@@ -31,10 +43,4 @@ public class HelperBase {
         }
     }
 
-    protected void selectDropdownValue(By locator, String dropdownValue) {
-        if (dropdownValue != "") {
-            driver.findElement(locator).click();
-            new Select(driver.findElement(locator)).selectByVisibleText(dropdownValue);
-        }
-    }
 }
