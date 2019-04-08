@@ -9,29 +9,33 @@ public class ContactCreationTest extends TestBase {
     public void testContactCreation() throws Exception {
 
         app.getContactHelper().initContactCreation();
-//        app.getContactHelper().fillContactForm(new AccountMap(
-//                "First",
-//                "M",
-//                "Surname",
-//                "Company",
-//                "Address",
-//                "5551234567",
-//                "dummy@mail.dot",
-//                "1",
-//                "January",
-//                "1900"));
-
         app.getContactHelper().fillContactForm(new AccountMap(
-                "Name",
-                "",
-                "Last",
-                "",
-                null,
-                "",
+                "First",
+                "M",
+                "Surname",
+                "Company",
+                "Address",
+                "5551234567",
                 "dummy@mail.dot",
-                "",
-                null,
-                "1988"));
+                "1",
+                "January",
+                "1900",
+                "test1"),
+                true);
+
+//        app.getContactHelper().fillContactForm(new AccountMap(
+//                "Name",
+//                "",
+//                "Last",
+//                "",
+//                null,
+//                "",
+//                "dummy@mail.dot",
+//                "",
+//                null,
+//                "1988",
+//                "test1" ),
+//                true);
 
         app.getContactHelper().submitContactCreation();
         app.getContactHelper().returnToMainPage();

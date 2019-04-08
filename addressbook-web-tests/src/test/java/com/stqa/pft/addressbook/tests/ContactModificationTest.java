@@ -17,19 +17,20 @@ public class ContactModificationTest extends TestBase {
                 "EditedAddress",
                 "0800000111000",
                 "EdItEd@MaIl.DoT.cOm",
-              "",//  "9",
-              "",//  "April",
-                "1988");
+                "",//  "9",
+                "",//  "April",
+                "1988",
+                null);
 
         app.getNavigationHelper().gotoHomePage();
         app.getContactHelper().EditContact();
-        app.getContactHelper().fillContactForm(editedContact);
+        app.getContactHelper().fillContactForm(editedContact, false);
         app.getContactHelper().submitContactUpdate();
         app.getContactHelper().returnToMainPage();
 
         //TODO: :following rows are workaround for bug in the application: a record is deleted instead of updating
         app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(editedContact);
+        app.getContactHelper().fillContactForm(editedContact, false);
         app.getContactHelper().submitContactCreation();
         app.getContactHelper().returnToMainPage();
     }

@@ -11,8 +11,9 @@ public class AccountMap {
     private final String dayOfBirth;
     private final String monthOfBirth;
     private final String yearOfBirth;
+    private final String group;
 
-    public AccountMap(String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth) {
+    public AccountMap(String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth, String group) {
         this.first = first;
         this.middleName = middleName;
         this.surname = surname;
@@ -23,6 +24,7 @@ public class AccountMap {
         this.dayOfBirth = dayOfBirth;
         this.monthOfBirth = monthOfBirth;
         this.yearOfBirth = yearOfBirth;
+        this.group = group;
     }
 
     public String getFirst() {
@@ -63,5 +65,9 @@ public class AccountMap {
 
     public String getYearOfBirth() {
         return yearOfBirth;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }
