@@ -30,7 +30,7 @@ public class ContactModificationTest extends TestBase {
 
         //TODO: :following rows are workaround for bug in the application: a record is deleted instead of updating
         app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(editedContact, false);
+        app.getContactHelper().fillContactForm(editedContact, true);
         app.getContactHelper().submitContactCreation();
         app.getContactHelper().returnToMainPage();
     }
