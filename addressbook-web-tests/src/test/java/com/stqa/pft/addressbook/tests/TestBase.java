@@ -7,10 +7,10 @@ import org.openqa.selenium.remote.BrowserType;
 
 public class TestBase {
 
-//    String testBrowser = BrowserType.CHROME;    // Chrome
+    String testBrowser = BrowserType.CHROME;    // Chrome
 //    String testBrowser = BrowserType.FIREFOX;   // FireFox
 //    String testBrowser = BrowserType.EDGE;      // Edge
-    String testBrowser = BrowserType.IE;      // Internet Explorer
+//    String testBrowser = BrowserType.IE;      // Internet Explorer
 
     protected final ApplicationManager app = new ApplicationManager(testBrowser);
 
