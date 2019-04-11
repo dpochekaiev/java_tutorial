@@ -7,6 +7,8 @@ public class ContactCreationTest extends TestBase {
 
     @Test
     public void testContactCreation() throws Exception {
+        System.out.println("================================================");
+        System.out.println("Running testContactCreation");
 
         app.getContactHelper().initContactCreation();
         app.getContactHelper().fillContactForm(new AccountMap(

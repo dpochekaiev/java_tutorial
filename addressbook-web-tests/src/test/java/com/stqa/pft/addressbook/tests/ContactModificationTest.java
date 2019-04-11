@@ -8,6 +8,8 @@ public class ContactModificationTest extends TestBase {
 
     @Test
     public void testContactModification() {
+        System.out.println("================================================");
+        System.out.println("Running testContactModification");
 
         AccountMap editedContact = new AccountMap(
                 "EditedName",

@@ -6,6 +6,9 @@ public class ContactRemoveTest extends TestBase {
 
     @Test
     public void testContactRemove() {
+        System.out.println("================================================");
+        System.out.println("Running testContactRemove");
+
         app.getNavigationHelper().gotoHomePage();
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteSelectedContact();
