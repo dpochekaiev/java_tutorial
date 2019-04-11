@@ -31,7 +31,11 @@ public class HelperBase {
     protected void selectDropdownValue(By locator, String dropdownValue) {
         if ((dropdownValue != "") && dropdownValue != null){
             driver.findElement(locator).click();
-            new Select(driver.findElement(locator)).selectByVisibleText(dropdownValue);
+            Select dropDown = new Select(driver.findElement(locator));
+            String selectedValue = dropDown.getFirstSelectedOption().getAttribute("text");
+            if (!selectedValue.equals(dropdownValue)) {
+                dropDown.selectByVisibleText(dropdownValue);
+            }
         }
     }
 
