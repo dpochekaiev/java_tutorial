@@ -10,8 +10,7 @@ public class ContactCreationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testContactCreation");
 
-        app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(new AccountMap(
+        AccountMap newContact = new AccountMap(
                 "First",
                 "M",
                 "Surname",
@@ -22,10 +21,9 @@ public class ContactCreationTest extends TestBase {
                 "1",
                 "January",
                 "1900",
-                "test1"),
-                true);
+                "test1");
 
-//        app.getContactHelper().fillContactForm(new AccountMap(
+//        AccountMap newContact = new AccountMap(
 //                "Name",
 //                "",
 //                "Last",
@@ -36,11 +34,10 @@ public class ContactCreationTest extends TestBase {
 //                "",
 //                null,
 //                "1988",
-//                "test1" ),
-//                true);
+//                "test1" );
 
-        app.getContactHelper().submitContactCreation();
-        app.getContactHelper().returnToMainPage();
+        app.getContactHelper().createContact(newContact, true);
+
     }
 
 }

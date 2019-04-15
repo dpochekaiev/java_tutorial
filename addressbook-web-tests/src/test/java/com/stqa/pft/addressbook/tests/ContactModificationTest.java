@@ -11,6 +11,12 @@ public class ContactModificationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testContactModification");
 
+        AccountMap dummyContact = new AccountMap(
+                "Just",
+                "A",
+                "Dummy contact",
+                "", "", "", "", "",
+                null, null, null);
         AccountMap editedContact = new AccountMap(
                 "EditedName",
                 "E",
@@ -20,11 +26,16 @@ public class ContactModificationTest extends TestBase {
                 "0800000111000",
                 "EdItEd@MaIl.DoT.cOm",
                 "",//  "9",
-                "",//  "April",
+                "April",
                 "1988",
                 null);
 
         app.getNavigationHelper().gotoHomePage();
+
+        if (!app.getContactHelper().isThereAContact()) {
+            app.getContactHelper().createContact(dummyContact, true);
+        }
+
         app.getContactHelper().EditContact();
         app.getContactHelper().fillContactForm(editedContact, false);
         app.getContactHelper().submitContactUpdate();
