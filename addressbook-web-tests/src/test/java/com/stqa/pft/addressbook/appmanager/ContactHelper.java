@@ -75,4 +75,8 @@ public class ContactHelper extends HelperBase {
         submitContactCreation();
         returnToMainPage();
     }
+
+    public int getContactCount() {
+        return driver.findElements(By.name("selected[]")).size();
+    }
 }
