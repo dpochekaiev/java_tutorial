@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../sandbox/src/main/java/com/stqa/pft/sandbox/Primes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandbox/src/test/java/com/stqa/pft/sandbox/PrimeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandbox/src/main/java/com/stqa/pft/sandbox/Collections.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sandbox/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/out/production/classes/com/stqa/pft/sandbox/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/out/production/classes/com/stqa/pft/sandbox/Point.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/src/main/java/com/stqa/pft/sandbox/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/src/main/java/com/stqa/pft/sandbox/Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -230,7 +227,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -461,7 +458,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1035" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1035" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
