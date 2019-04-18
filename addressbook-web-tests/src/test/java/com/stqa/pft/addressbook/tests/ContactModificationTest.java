@@ -4,6 +4,8 @@ import com.stqa.pft.addressbook.model.AccountMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class ContactModificationTest extends TestBase {
 
     @Test
@@ -31,13 +33,14 @@ public class ContactModificationTest extends TestBase {
                 null);
 
         app.getNavigationHelper().gotoHomePage();
-        int startingTestContactCount = app.getContactHelper().getContactCount();
+        List<AccountMap> startingTestContactsList = app.getContactHelper().getContactList();
+//        int startingTestContactCount = app.getContactHelper().getContactCount();
         if (!app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact(dummyContact, true);
         }
 
 // test part
-        int beforeTestContactsCount = app.getContactHelper().getContactCount();
+        List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
         app.getContactHelper().editContactByIndex(1);
         app.getContactHelper().fillContactForm(editedContact, false);
         app.getContactHelper().submitContactUpdate();
@@ -50,10 +53,10 @@ public class ContactModificationTest extends TestBase {
         app.getContactHelper().returnToMainPage();
 
 // outcoming part
-        int afterTestContactsCount = app.getContactHelper().getContactCount();
-        System.out.println("Initially contacts before test: " + startingTestContactCount);
-        System.out.println("Contacts before test: " + beforeTestContactsCount);
-        System.out.println("Contacts after test: " + afterTestContactsCount);
-        Assert.assertEquals(afterTestContactsCount, beforeTestContactsCount);
+        List<AccountMap> afterTestContactsList = app.getContactHelper().getContactList();
+        System.out.println("Initially contacts before test: " + startingTestContactsList.size());
+        System.out.println("Contacts before test: " + beforeTestContactsList.size());
+        System.out.println("Contacts after test: " + afterTestContactsList.size());
+        Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size());
     }
 }

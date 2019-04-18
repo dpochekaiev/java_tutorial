@@ -4,6 +4,8 @@ package com.stqa.pft.addressbook.tests;
         import org.testng.Assert;
         import org.testng.annotations.*;
 
+        import java.util.List;
+
 public class ContactCreationTest extends TestBase {
 
     @Test
@@ -39,14 +41,14 @@ public class ContactCreationTest extends TestBase {
 
 // test part
         app.getNavigationHelper().gotoHomePage();
-        int beforeTestContactsCount = app.getContactHelper().getContactCount();
+        List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
         app.getContactHelper().createContact(newContact, true);
 
 // outcoming part
-        int afterTestContactsCount = app.getContactHelper().getContactCount();
-        System.out.println("Contacts before test: " + beforeTestContactsCount);
-        System.out.println("Contacts after test: " + afterTestContactsCount);
-        Assert.assertEquals(afterTestContactsCount, beforeTestContactsCount + 1);
+        List<AccountMap> afterTestContactsList = app.getContactHelper().getContactList();
+        System.out.println("Contacts before test: " + beforeTestContactsList.size());
+        System.out.println("Contacts after test: " + afterTestContactsList.size());
+        Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() + 1);
     }
 
 }

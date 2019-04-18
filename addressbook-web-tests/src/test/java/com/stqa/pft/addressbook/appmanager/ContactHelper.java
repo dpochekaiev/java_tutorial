@@ -6,6 +6,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ContactHelper extends HelperBase {
 
     private String editContactLinkSelector = "//tr/following::img[2]";
@@ -91,4 +94,26 @@ public class ContactHelper extends HelperBase {
         return driver.findElements(By.xpath(editContactLinkSelector)).size();
     }
 
+    public List<AccountMap> getContactList() {
+        List<AccountMap> accounts = new ArrayList<AccountMap>();
+        List<WebElement> elements = driver.findElements(By.xpath(editContactLinkSelector));
+        List<WebElement> surnames = driver.findElements(By.xpath("//tr[@name='entry']/td[2]"));
+        List<WebElement> names = driver.findElements(By.xpath("//tr[@name='entry']/td[3]"));
+        List<WebElement> addresses = driver.findElements(By.xpath("//tr[@name='entry']/td[4]"));
+        List<WebElement> emails = driver.findElements(By.xpath("//tr[@name='entry']/td[5]"));
+        List<WebElement> phones = driver.findElements(By.xpath("//tr[@name='entry']/td[6]"));
+        int i = 0;
+        for (WebElement element : elements) {
+            String surname = surnames.get(i).getText();
+            String name = names.get(i).getText();
+            String address = addresses.get(i).getText();
+            String email = emails.get(i).getText();
+            String phone = phones.get(i).getText();
+            i++;
+            AccountMap account = new AccountMap(name, null, surname, null, address,phone, email,
+                    null, null, null, null);
+            accounts.add(account);
+        }
+        return accounts;
+    }
 }
