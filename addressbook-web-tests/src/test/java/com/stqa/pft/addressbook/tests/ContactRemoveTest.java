@@ -26,7 +26,7 @@ public class ContactRemoveTest extends TestBase {
 
 // test part
         int beforeTestContactsCount = app.getContactHelper().getContactCount();
-        app.getContactHelper().selectContact();
+        app.getContactHelper().selectContactByIndex(0);
         app.getContactHelper().deleteSelectedContact();
         app.getNavigationHelper().gotoHomePage();
 

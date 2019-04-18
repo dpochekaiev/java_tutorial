@@ -41,6 +41,11 @@ public class GroupHelper extends HelperBase{
         click(By.name("selected[]"));
     }
 
+    public void selectGroupByIndex(int selectedGroupIndex) {
+        driver.findElements(By.name("selected[]")).get(selectedGroupIndex).click();
+
+    }
+
     public void initGroupModification() {
         click(By.xpath("(//input[@name='edit' and @value='Edit group'])[1]"));
     }
@@ -63,4 +68,5 @@ public class GroupHelper extends HelperBase{
     public int getGroupCount() {
         return driver.findElements(By.name("selected[]")).size();
     }
+
 }

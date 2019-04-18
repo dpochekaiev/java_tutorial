@@ -1,7 +1,6 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -39,7 +38,7 @@ public class ContactModificationTest extends TestBase {
 
 // test part
         int beforeTestContactsCount = app.getContactHelper().getContactCount();
-        app.getContactHelper().EditContact();
+        app.getContactHelper().editContactByIndex(1);
         app.getContactHelper().fillContactForm(editedContact, false);
         app.getContactHelper().submitContactUpdate();
         app.getContactHelper().returnToMainPage();

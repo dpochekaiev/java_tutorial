@@ -8,6 +8,8 @@ import org.testng.Assert;
 
 public class ContactHelper extends HelperBase {
 
+    private String editContactLinkSelector = "//tr/following::img[2]";
+
     public ContactHelper(WebDriver driver) {
         super(driver);
     }
@@ -42,9 +44,13 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void EditContact() {
-        click(By.xpath("(//tr)[1]/following::img[2]"));
+    public void editContact() {
+        click(By.xpath(editContactLinkSelector));
 //        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='dummy@mail.dot'])[1]/following::img[2]"));
+    }
+
+    public void editContactByIndex(int editContactIndex) {
+        driver.findElements(By.xpath(editContactLinkSelector)).get(editContactIndex).click();
     }
 
     public void submitContactUpdate() {
@@ -57,6 +63,10 @@ public class ContactHelper extends HelperBase {
 
     public void selectContact() {
         click(By.name("selected[]"));
+    }
+
+    public void selectContactByIndex(int selectContactIndex) {
+        driver.findElements(By.name("selected[]")).get(selectContactIndex).click();
     }
 
     public void deleteSelectedContact() {
@@ -77,6 +87,8 @@ public class ContactHelper extends HelperBase {
     }
 
     public int getContactCount() {
-        return driver.findElements(By.name("selected[]")).size();
+        //return driver.findElements(By.name("selected[]")).size();
+        return driver.findElements(By.xpath(editContactLinkSelector)).size();
     }
+
 }

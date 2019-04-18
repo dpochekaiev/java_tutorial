@@ -20,7 +20,7 @@ public class GroupModificationTest extends TestBase {
         int beforeTestGroupsCount = app.getGroupHelper().getGroupCount();
 
 // test part
-        app.getGroupHelper().selectGroup();
+        app.getGroupHelper().selectGroupByIndex(beforeTestGroupsCount - 1);  // the last group
         app.getGroupHelper().initGroupModification();
         app.getGroupHelper().fillGroupForm(new GroupMap("Edit1", "Edit_2", "Edit 3"));
         app.getGroupHelper().submitGroupUpate();
