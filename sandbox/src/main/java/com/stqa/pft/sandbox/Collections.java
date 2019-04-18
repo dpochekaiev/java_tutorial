@@ -28,7 +28,7 @@ public class Collections {
         langsList.add("PHP");
 
         // коллекция строк типа 'List', заполненная при создании
-        // Фактически это массивЖ к нему нельзя добавить или убрать элементы, как и в обычном массиве через методы .add и .remove
+        // Фактически это массив: к нему нельзя добавить или убрать элементы, как и в обычном массиве через методы .add и .remove
         List<String> langList_ArrayAsList = Arrays.asList("Java", "C#", "Python", "PHP");
         langsList.getClass();
         langList_ArrayAsList.getClass();

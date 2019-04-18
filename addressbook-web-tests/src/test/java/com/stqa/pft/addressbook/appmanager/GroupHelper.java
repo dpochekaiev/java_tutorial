@@ -3,6 +3,10 @@ package com.stqa.pft.addressbook.appmanager;
 import com.stqa.pft.addressbook.model.GroupMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupHelper extends HelperBase{
 
@@ -69,4 +73,14 @@ public class GroupHelper extends HelperBase{
         return driver.findElements(By.name("selected[]")).size();
     }
 
+    public List<GroupMap> getGroupList() {
+        List<GroupMap> groups = new ArrayList<GroupMap>();
+        List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements) {
+            String groupName = element.getText();
+            GroupMap group = new GroupMap(groupName, null, null);
+            groups.add(group);
+        }
+        return groups;
+    }
 }

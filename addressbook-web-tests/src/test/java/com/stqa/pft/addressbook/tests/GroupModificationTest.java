@@ -4,6 +4,8 @@ import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class GroupModificationTest extends TestBase {
 
     @Test
@@ -13,25 +15,25 @@ public class GroupModificationTest extends TestBase {
         System.out.println("Running testGroupModification");
 
         app.getNavigationHelper().gotoGroupPage();
-        int startingTestGroupCount = app.getGroupHelper().getGroupCount();
+        List<GroupMap> startingTestGroupsList = app.getGroupHelper().getGroupList();
         if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup(new GroupMap("test1", null, null));
         }
-        int beforeTestGroupsCount = app.getGroupHelper().getGroupCount();
+        List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
 
 // test part
-        app.getGroupHelper().selectGroupByIndex(beforeTestGroupsCount - 1);  // the last group
+        app.getGroupHelper().selectGroupByIndex(beforeTestGroupsList.size() - 1);  // the last group
         app.getGroupHelper().initGroupModification();
         app.getGroupHelper().fillGroupForm(new GroupMap("Edit1", "Edit_2", "Edit 3"));
         app.getGroupHelper().submitGroupUpate();
         app.getGroupHelper().returnToGroupPage();
 
 // outcoming part
-        int afterTestGroupsCount = app.getGroupHelper().getGroupCount();
-        System.out.println("Initially groups before test: " + startingTestGroupCount);
-        System.out.println("Groups before test: " + beforeTestGroupsCount);
-        System.out.println("Groups after test: " + afterTestGroupsCount);
-        Assert.assertEquals(afterTestGroupsCount, beforeTestGroupsCount);
+        List<GroupMap> afterTestGroupsList = app.getGroupHelper().getGroupList();
+        System.out.println("Initially groups before test: " + startingTestGroupsList.size());
+        System.out.println("Groups before test: " + beforeTestGroupsList.size());
+        System.out.println("Groups after test: " + afterTestGroupsList.size());
+        Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size());
     }
 
 }

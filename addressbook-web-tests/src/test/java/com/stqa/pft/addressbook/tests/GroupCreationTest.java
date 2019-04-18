@@ -2,7 +2,7 @@ package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
-import org.testng.annotations.*;;
+import org.testng.annotations.*;;import java.util.List;
 
 public class GroupCreationTest extends TestBase {
 
@@ -14,17 +14,17 @@ public class GroupCreationTest extends TestBase {
 
         GroupMap testGroup = new GroupMap("test1", "test2", "test3");
         //GroupMap testGroup = new GroupMap("test1", null, null);
+        app.getNavigationHelper().gotoGroupPage();
 
 // test part
-        app.getNavigationHelper().gotoGroupPage();
-        int beforeTestGroupsCount = app.getGroupHelper().getGroupCount();
+        List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
         app.getGroupHelper().createGroup(testGroup);
 
 // outcoming part
-        int afterTestGroupsCount = app.getGroupHelper().getGroupCount();
-        System.out.println("Groups before test: " + beforeTestGroupsCount);
-        System.out.println("Groups after test: " + afterTestGroupsCount);
-        Assert.assertEquals(afterTestGroupsCount, beforeTestGroupsCount + 1);
+        List<GroupMap> afterTestGroupsList = app.getGroupHelper().getGroupList();
+        System.out.println("Groups before test: " + beforeTestGroupsList.size());
+        System.out.println("Groups after test: " + afterTestGroupsList.size());
+        Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() + 1);
     }
 
 }
