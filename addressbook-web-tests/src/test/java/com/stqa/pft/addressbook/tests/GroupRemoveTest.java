@@ -8,6 +8,8 @@ import java.util.List;
 
 public class GroupRemoveTest extends TestBase {
 
+    private int selectedGroupIndex = 0;
+
     @Test
     public void testRemoveGroup() throws Exception {
 // preparation part
@@ -23,7 +25,7 @@ public class GroupRemoveTest extends TestBase {
         List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
 
 // test part
-        app.getGroupHelper().selectGroupByIndex(0);
+        app.getGroupHelper().selectGroupByIndex(selectedGroupIndex);
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
 
@@ -33,6 +35,17 @@ public class GroupRemoveTest extends TestBase {
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() - 1);
+
+        beforeTestGroupsList.remove(selectedGroupIndex);
+        Assert.assertEquals(afterTestGroupsList, beforeTestGroupsList);
+
+        //TODO: :remove redundant lines
+        System.out.println();
+        System.out.println("beforeTestGroupsList" + "    " + "afterTestGroupsList");
+        for (int i = 0; i < afterTestGroupsList.size(); i++) {
+            System.out.println(beforeTestGroupsList.get(i) + "    " + afterTestGroupsList.get(i));
+        }
+        //TODO: :end of redundant lines
     }
 
 }
