@@ -3,14 +3,27 @@ package com.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class GroupMap {
+
+    private final String groupId;
     private final String groupName;
     private final String groupHeader;
     private final String groupFooter;
 
     public GroupMap(String groupName, String groupHeader, String groupFooter) {
+        this.groupId = null;
         this.groupName = groupName;
         this.groupHeader = groupHeader;
         this.groupFooter = groupFooter;
+    }
+    public GroupMap(String groupId, String groupName, String groupHeader, String groupFooter) {
+        this.groupId = groupId;
+        this.groupName = groupName;
+        this.groupHeader = groupHeader;
+        this.groupFooter = groupFooter;
+    }
+
+    public String getGroupId() {
+        return groupId;
     }
 
     public String getGroupName() {
@@ -28,7 +41,8 @@ public class GroupMap {
     @Override
     public String toString() {
         return "GroupMap{" +
-                "groupName='" + groupName + '\'' +
+                "groupId='" + groupId + '\'' +
+                ", groupName='" + groupName + '\'' +
                 '}';
     }
 
@@ -37,11 +51,12 @@ public class GroupMap {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GroupMap groupMap = (GroupMap) o;
-        return Objects.equals(groupName, groupMap.groupName);
+        return Objects.equals(groupId, groupMap.groupId) &&
+                Objects.equals(groupName, groupMap.groupName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(groupName);
+        return Objects.hash(groupId, groupName);
     }
 }
