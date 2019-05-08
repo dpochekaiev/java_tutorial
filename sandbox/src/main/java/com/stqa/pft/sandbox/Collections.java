@@ -33,11 +33,11 @@ public class Collections {
         langsList.getClass();
         langList_ArrayAsList.getClass();
 
-/*==========================================================================================================================================*/
+        /*==========================================================================================================================================*/
 
         //  работа с массивом через обычный цикл FOR
         System.out.println("работа с массивом через обычный цикл FOR");
-        for (int i = 0; i < langs.length; i++){
+        for (int i = 0; i < langs.length; i++) {
             System.out.println(i + ": " + langs[i] + " and " + langsOneLine[i] + " are equals: " + langs[i].equals(langsOneLine[i]));
         }
 
@@ -46,6 +46,9 @@ public class Collections {
         System.out.println("Работа с массивами через цикл FOR для массивов (в качестве переменной цикла выступает сразу очередной эдлемент массива ('l'))");
         for (String l : langs) {
             System.out.println("Я хочу выучить " + l);
+            if (l.equals("C#")) {
+                break; // проверка работы break - прерывается только текущий цикла, а не весь метод
+            }
         }
 
         System.out.println();

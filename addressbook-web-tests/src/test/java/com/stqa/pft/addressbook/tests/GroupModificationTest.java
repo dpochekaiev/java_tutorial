@@ -45,7 +45,7 @@ public class GroupModificationTest extends TestBase {
 
         //TODO: :remove redundant lines
         System.out.println();
-        System.out.println("beforeTestGroupsList" + "              " + "afterTestGroupsList");
+        System.out.println("beforeTestGroupsList" + "                              " + "afterTestGroupsList");
         for (int i = 0; i < afterTestGroupsList.size(); i++) {
             System.out.println(beforeTestGroupsList.get(i) + "    " + afterTestGroupsList.get(i));
         }

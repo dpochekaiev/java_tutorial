@@ -77,7 +77,7 @@ public class GroupHelper extends HelperBase{
         List<GroupMap> groups = new ArrayList<GroupMap>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
-            String groupId = element.findElement(By.tagName("input")).getAttribute("value");
+            int groupId = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             String groupName = element.getText();
             GroupMap group = new GroupMap(groupId, groupName, null, null);
             groups.add(group);

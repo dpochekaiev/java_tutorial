@@ -4,25 +4,25 @@ import java.util.Objects;
 
 public class GroupMap {
 
-    private final String groupId;
+    private int groupId;
     private final String groupName;
     private final String groupHeader;
     private final String groupFooter;
 
     public GroupMap(String groupName, String groupHeader, String groupFooter) {
-        this.groupId = null;
+        this.groupId = 0;
         this.groupName = groupName;
         this.groupHeader = groupHeader;
         this.groupFooter = groupFooter;
     }
-    public GroupMap(String groupId, String groupName, String groupHeader, String groupFooter) {
+    public GroupMap(int groupId, String groupName, String groupHeader, String groupFooter) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.groupHeader = groupHeader;
         this.groupFooter = groupFooter;
     }
 
-    public String getGroupId() {
+    public int getGroupId() {
         return groupId;
     }
 
@@ -51,12 +51,16 @@ public class GroupMap {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GroupMap groupMap = (GroupMap) o;
-        return Objects.equals(groupId, groupMap.groupId) &&
+        return groupId == groupMap.groupId &&
                 Objects.equals(groupName, groupMap.groupName);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(groupId, groupName);
+    }
+
+    public void setGroupId(int newGroupID) {
+        this.groupId = newGroupID;
     }
 }
