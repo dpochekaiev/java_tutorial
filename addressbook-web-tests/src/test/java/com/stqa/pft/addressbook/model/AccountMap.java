@@ -1,5 +1,7 @@
 package com.stqa.pft.addressbook.model;
 
+import java.util.Objects;
+
 public class AccountMap {
     private final String first;
     private final String middleName;
@@ -59,6 +61,7 @@ public class AccountMap {
         return dayOfBirth;
     }
 
+
     public String getMonthOfBirth() {
         return monthOfBirth;
     }
@@ -69,5 +72,33 @@ public class AccountMap {
 
     public String getGroup() {
         return group;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountMap{" +
+                "surname='" + surname + '\'' +
+                ", first='" + first + '\'' +
+                ", address='" + address + '\'' +
+                ", emailFirst='" + emailFirst + '\'' +
+                ", homePhoneNumber='" + homePhoneNumber + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountMap that = (AccountMap) o;
+        return Objects.equals(first, that.first) &&
+                Objects.equals(surname, that.surname) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
+                Objects.equals(emailFirst, that.emailFirst);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, surname, address, homePhoneNumber, emailFirst);
     }
 }

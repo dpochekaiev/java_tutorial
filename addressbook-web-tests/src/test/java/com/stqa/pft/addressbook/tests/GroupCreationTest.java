@@ -36,6 +36,7 @@ public class GroupCreationTest extends TestBase {
         testGroup.setGroupId(maxGroupID);
         beforeTestGroupsList.add(testGroup);
         Assert.assertEquals(new HashSet<Object>(afterTestGroupsList), new HashSet<Object>(beforeTestGroupsList));
+
         //TODO: :remove redundant lines
         System.out.println();
         System.out.println("beforeTestGroupsList" + "                              " + "afterTestGroupsList");

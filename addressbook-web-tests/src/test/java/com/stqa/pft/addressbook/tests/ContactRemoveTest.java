@@ -13,6 +13,7 @@ public class ContactRemoveTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactRemove");
+        int contactToRemoveIndex = 0;
         AccountMap dummyContact = new AccountMap(
                 "Just",
                 "A",
@@ -28,7 +29,7 @@ public class ContactRemoveTest extends TestBase {
 
 // test part
         List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
-        app.getContactHelper().selectContactByIndex(0);
+        app.getContactHelper().selectContactByIndex(contactToRemoveIndex);
         app.getContactHelper().deleteSelectedContact();
         app.getNavigationHelper().gotoHomePage();
 
@@ -38,6 +39,21 @@ public class ContactRemoveTest extends TestBase {
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() - 1);
+
+        beforeTestContactsList.remove(contactToRemoveIndex);
+        Assert.assertEquals(afterTestContactsList, beforeTestContactsList);
+
+        //TODO: :remove redundant lines
+        System.out.println();
+        System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
+        for (int i = 0; i < afterTestContactsList.size(); i++) {
+//            System.out.println(beforeTestContactsList.get(i) + "        " + afterTestContactsList.get(i));
+            System.out.println("    Record № " + i);
+            System.out.println("before: " + beforeTestContactsList.get(i));
+            System.out.println("after:  " + afterTestContactsList.get(i));
+            System.out.println();
+        }
+        //TODO: :end of redundant lines
     }
 
 }
