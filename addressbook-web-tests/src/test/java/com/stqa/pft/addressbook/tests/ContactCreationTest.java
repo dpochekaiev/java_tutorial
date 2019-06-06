@@ -4,6 +4,7 @@ package com.stqa.pft.addressbook.tests;
         import org.testng.Assert;
         import org.testng.annotations.*;
 
+        import java.util.HashSet;
         import java.util.List;
 
 public class ContactCreationTest extends TestBase {
@@ -49,6 +50,27 @@ public class ContactCreationTest extends TestBase {
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() + 1);
+
+        int maxContactID = 0;
+        for (AccountMap contact : afterTestContactsList) {
+            if (contact.getContactID() > maxContactID) {
+                maxContactID = contact.getContactID();
+            }
+        }
+        newContact.setContactID(maxContactID);
+        beforeTestContactsList.add(newContact);
+        //TODO: :remove redundant lines
+        System.out.println();
+        System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
+        for (int i = 0; i < afterTestContactsList.size(); i++) {
+//            System.out.println(beforeTestContactsList.get(i) + "        " + afterTestContactsList.get(i));
+            System.out.println("    Record № " + i);
+            System.out.println("before: " + beforeTestContactsList.get(i));
+            System.out.println("after:  " + afterTestContactsList.get(i));
+            System.out.println();
+        }
+        //TODO: :end of redundant lines
+        Assert.assertEquals(new HashSet<Object>(afterTestContactsList), new HashSet<Object>(beforeTestContactsList));
     }
 
 }

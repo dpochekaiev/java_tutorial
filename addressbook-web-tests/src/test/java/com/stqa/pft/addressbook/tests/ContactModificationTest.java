@@ -4,6 +4,7 @@ import com.stqa.pft.addressbook.model.AccountMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTest extends TestBase {
@@ -13,6 +14,7 @@ public class ContactModificationTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactModification");
+        int editContactIndex = 0;
         AccountMap dummyContact = new AccountMap(
                 "Just",
                 "A",
@@ -41,7 +43,7 @@ public class ContactModificationTest extends TestBase {
 
 // test part
         List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
-        app.getContactHelper().editContactByIndex(1);
+        app.getContactHelper().editContactByIndex(editContactIndex);
         app.getContactHelper().fillContactForm(editedContact, false);
         app.getContactHelper().submitContactUpdate();
         app.getContactHelper().returnToMainPage();
@@ -58,5 +60,29 @@ public class ContactModificationTest extends TestBase {
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size());
+
+        int maxContactID = 0;
+        for (AccountMap contact : afterTestContactsList) {
+            if (contact.getContactID() > maxContactID) {
+                maxContactID = contact.getContactID();
+            }
+        }
+        editedContact.setContactID(maxContactID);
+        beforeTestContactsList.remove(editContactIndex);
+        beforeTestContactsList.add(editedContact);
+
+        //TODO: :remove redundant lines
+        System.out.println();
+        System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
+        for (int i = 0; i < afterTestContactsList.size(); i++) {
+//            System.out.println(beforeTestContactsList.get(i) + "        " + afterTestContactsList.get(i));
+            System.out.println("    Record № " + i);
+            System.out.println("before: " + beforeTestContactsList.get(i));
+            System.out.println("after:  " + afterTestContactsList.get(i));
+            System.out.println();
+        }
+        //TODO: :end of redundant lines
+
+        Assert.assertEquals(new HashSet<Object>(afterTestContactsList), new HashSet<Object>(beforeTestContactsList));
     }
 }

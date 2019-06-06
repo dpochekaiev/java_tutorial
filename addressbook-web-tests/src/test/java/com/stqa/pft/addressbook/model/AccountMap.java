@@ -3,6 +3,8 @@ package com.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class AccountMap {
+
+    private int contactID;
     private final String first;
     private final String middleName;
     private final String surname;
@@ -15,7 +17,31 @@ public class AccountMap {
     private final String yearOfBirth;
     private final String group;
 
+    public int getContactID() {
+        return contactID;
+    }
+
+    public void setContactID(int contactID) {
+        this.contactID = contactID;
+    }
+
+    public AccountMap(int contactID, String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth, String group) {
+        this.contactID = contactID;
+        this.first = first;
+        this.middleName = middleName;
+        this.surname = surname;
+        this.company = company;
+        this.address = address;
+        this.homePhoneNumber = homePhoneNumber;
+        this.emailFirst = emailFirst;
+        this.dayOfBirth = dayOfBirth;
+        this.monthOfBirth = monthOfBirth;
+        this.yearOfBirth = yearOfBirth;
+        this.group = group;
+    }
+
     public AccountMap(String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth, String group) {
+        this.contactID = 0;
         this.first = first;
         this.middleName = middleName;
         this.surname = surname;
@@ -75,22 +101,12 @@ public class AccountMap {
     }
 
     @Override
-    public String toString() {
-        return "AccountMap{" +
-                "surname='" + surname + '\'' +
-                ", first='" + first + '\'' +
-                ", address='" + address + '\'' +
-                ", emailFirst='" + emailFirst + '\'' +
-                ", homePhoneNumber='" + homePhoneNumber + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountMap that = (AccountMap) o;
-        return Objects.equals(first, that.first) &&
+        return Objects.equals(contactID, that.contactID) &&
+                Objects.equals(first, that.first) &&
                 Objects.equals(surname, that.surname) &&
                 Objects.equals(address, that.address) &&
                 Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
@@ -99,6 +115,19 @@ public class AccountMap {
 
     @Override
     public int hashCode() {
-        return Objects.hash(first, surname, address, homePhoneNumber, emailFirst);
+        return Objects.hash(contactID, first, surname, address, homePhoneNumber, emailFirst);
     }
+
+    @Override
+    public String toString() {
+        return "AccountMap{" +
+                "contactID='" + contactID + '\'' +
+                "surname='" + surname + '\'' +
+                ", first='" + first + '\'' +
+                ", address='" + address + '\'' +
+                ", emailFirst='" + emailFirst + '\'' +
+                ", homePhoneNumber='" + homePhoneNumber + '\'' +
+                '}';
+    }
+
 }

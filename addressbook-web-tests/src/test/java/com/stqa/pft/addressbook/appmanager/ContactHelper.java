@@ -110,7 +110,9 @@ public class ContactHelper extends HelperBase {
             String email = emails.get(i).getText();
             String phone = phones.get(i).getText();
             i++;
-            AccountMap account = new AccountMap(name, null, surname, null, address,phone, email,
+            String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
+            int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath)).getAttribute("value"));
+            AccountMap account = new AccountMap(contactID, name, null, surname, null, address,phone, email,
                     null, null, null, null);
             accounts.add(account);
         }
