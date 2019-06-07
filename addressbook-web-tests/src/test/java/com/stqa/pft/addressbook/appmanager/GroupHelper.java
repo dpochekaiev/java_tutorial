@@ -84,4 +84,12 @@ public class GroupHelper extends HelperBase{
         }
         return groups;
     }
+
+    public void modifyGroup(int selectedGroupIndex, GroupMap newGroup) {
+        selectGroupByIndex(selectedGroupIndex);
+        initGroupModification();
+        fillGroupForm(newGroup);
+        submitGroupUpate();
+        returnToGroupPage();
+    }
 }

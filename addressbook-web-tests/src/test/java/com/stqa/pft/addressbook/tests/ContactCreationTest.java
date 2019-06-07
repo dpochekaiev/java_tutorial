@@ -52,12 +52,6 @@ public class ContactCreationTest extends TestBase {
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() + 1);
 
-//        int maxContactID = 0;
-//        for (AccountMap contact : afterTestContactsList) {
-//            if (contact.getContactID() > maxContactID) {
-//                maxContactID = contact.getContactID();
-//            }
-//        }
         int maxContactID = afterTestContactsList.stream().max((o1, o2) -> Integer.compare(o1.getContactID(), o2.getContactID())).get().getContactID();
         newContact.setContactID(maxContactID);
         beforeTestContactsList.add(newContact);
@@ -74,22 +68,6 @@ public class ContactCreationTest extends TestBase {
             System.out.println();
         }
         //TODO: :end of redundant lines
-//        List<AccountMap> beforeTestContactsListArranged = new AccountMap;
-//        List<AccountMap> afterTestContactsListArranged = new AccountMap;
-//        *
-//        // тут надо написать способ получения упорядоченных массивов контактов по возрастанию contactID
-//
-//        int minAccountID = 0;
-//        for (int i = 0; i < afterTestContactsList.size(); i++) {
-//            for (int j = 0; j < i; j++) {
-//                if (minAccountID <= beforeTestContactsList.get(j).getContactID()) {
-//                    maxContactID = beforeTestContactsList.get(j).getContactID();
-//                    *
-//                     * и что-то ещё в том же духе
-//
-//                }
-//            }
-//        }
 
         Comparator<? super AccountMap> byContactID = (g1, g2) -> Integer.compare(g1.getContactID(), g2.getContactID());
         beforeTestContactsList.sort(byContactID);

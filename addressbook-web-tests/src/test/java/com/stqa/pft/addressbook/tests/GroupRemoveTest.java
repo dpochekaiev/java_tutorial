@@ -2,6 +2,7 @@ package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -11,18 +12,21 @@ public class GroupRemoveTest extends TestBase {
 
     private int selectedGroupIndex = 0;
 
+    @BeforeMethod
+    public void ensurePreConditions() {
+        app.getNavigationHelper().gotoGroupPage();
+        if (!app.getGroupHelper().isThereAGroup()) {
+            app.getGroupHelper().createGroup(new GroupMap("test1", "Some Dummy Group", null));
+        }
+    }
+
     @Test
     public void testRemoveGroup() throws Exception {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testRemoveGroup");
 
-        app.getNavigationHelper().gotoGroupPage();
         List<GroupMap> startingTestGroupsList = app.getGroupHelper().getGroupList();
-
-        if (!app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupMap("test1", null, null));
-        }
         List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
 
 // test part

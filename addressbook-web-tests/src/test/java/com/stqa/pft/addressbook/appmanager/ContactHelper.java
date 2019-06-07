@@ -143,4 +143,11 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    public void modifyContact(int editContactIndex, AccountMap editedContact) {
+        editContactByIndex(editContactIndex);
+        fillContactForm(editedContact, false);
+        submitContactUpdate();
+        returnToMainPage();
+    }
+
 }
