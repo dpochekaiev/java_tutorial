@@ -2,7 +2,8 @@ package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
-import org.testng.annotations.*;;import java.util.HashSet;
+import org.testng.annotations.*;
+import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTest extends TestBase {
@@ -27,12 +28,34 @@ public class GroupCreationTest extends TestBase {
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() + 1);
 
-        int maxGroupID = 0;
-        for (GroupMap i : afterTestGroupsList) {
-            if (maxGroupID < i.getGroupId()) {
-                maxGroupID = i.getGroupId();
-            }
-        }
+//        int maxGroupID = 0;
+//        for (GroupMap i : afterTestGroupsList) {
+//            if (maxGroupID < i.getGroupId()) {
+//                maxGroupID = i.getGroupId();
+//            }
+//        }
+
+//        /**
+//         * анонимный класс
+//         */
+//        Comparator<? super GroupMap> byId = new Comparator<GroupMap>() {
+//            @Override
+//            public int compare(GroupMap o1, GroupMap o2) {
+//                return Integer.compare(o1.getGroupId(), o2.getGroupId());
+//            }
+//        };
+//        int maxGroupID = afterTestGroupsList.stream().max(byId).get().getGroupId();
+
+//        /**
+//         * анонимная функция
+//         */
+//        Comparator<? super GroupMap> byId = (Comparator<GroupMap>) (o1, o2) -> Integer.compare(o1.getGroupId(), o2.getGroupId());
+//        int maxGroupID = afterTestGroupsList.stream().max(byId).get().getGroupId();
+
+        /**
+         * испоьзование лябда-выражения (анонимной функции) для получения максимального значения groupID
+         */
+        int maxGroupID = afterTestGroupsList.stream().max((o1, o2) -> Integer.compare(o1.getGroupId(), o2.getGroupId())).get().getGroupId();
         testGroup.setGroupId(maxGroupID);
         beforeTestGroupsList.add(testGroup);
         Assert.assertEquals(new HashSet<Object>(afterTestGroupsList), new HashSet<Object>(beforeTestGroupsList));

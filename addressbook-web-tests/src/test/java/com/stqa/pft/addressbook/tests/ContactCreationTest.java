@@ -51,12 +51,14 @@ public class ContactCreationTest extends TestBase {
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() + 1);
 
-        int maxContactID = 0;
-        for (AccountMap contact : afterTestContactsList) {
-            if (contact.getContactID() > maxContactID) {
-                maxContactID = contact.getContactID();
-            }
-        }
+//        int maxContactID = 0;
+//        for (AccountMap contact : afterTestContactsList) {
+//            if (contact.getContactID() > maxContactID) {
+//                maxContactID = contact.getContactID();
+//            }
+//        }
+
+        int maxContactID = afterTestContactsList.stream().max((o1, o2) -> Integer.compare(o1.getContactID(), o2.getContactID())).get().getContactID();
         newContact.setContactID(maxContactID);
         beforeTestContactsList.add(newContact);
         //TODO: :remove redundant lines
