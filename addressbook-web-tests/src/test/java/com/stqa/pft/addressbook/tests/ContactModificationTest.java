@@ -42,6 +42,7 @@ public class ContactModificationTest extends TestBase {
         }
 
 // test part
+
         List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
         app.getContactHelper().editContactByIndex(editContactIndex);
         app.getContactHelper().fillContactForm(editedContact, false);
@@ -72,6 +73,8 @@ public class ContactModificationTest extends TestBase {
         beforeTestContactsList.add(editedContact);
 
         //TODO: :remove redundant lines
+        beforeTestContactsList = app.getContactHelper().sortAscending(beforeTestContactsList);
+        afterTestContactsList = app.getContactHelper().sortAscending(afterTestContactsList);
         System.out.println();
         System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
         for (int i = 0; i < afterTestContactsList.size(); i++) {

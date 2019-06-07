@@ -118,4 +118,29 @@ public class ContactHelper extends HelperBase {
         }
         return accounts;
     }
+
+    public List<AccountMap> sortAscending (List<AccountMap> contactList) {
+        if (contactList.size() < 2) {
+            return contactList;
+        }
+        List<AccountMap> temporaryContactList = new ArrayList<AccountMap>();
+        for (int j = contactList.size(); j > 0; j--) {
+
+            int minAccountIdIndex = 0;
+            int accountListLength = contactList.size();
+            for (int i = 0; i < accountListLength; i++) {
+                if (contactList.get(minAccountIdIndex).getContactID() > contactList.get(i).getContactID()) {
+                    minAccountIdIndex = i;
+                }
+            }
+            temporaryContactList.add(contactList.get(minAccountIdIndex));
+            contactList.remove(minAccountIdIndex);
+        }
+        for (int i = 0; i < temporaryContactList.size(); i++) {
+            contactList.add(temporaryContactList.get(i));
+        }
+        return contactList;
+
+    }
+
 }

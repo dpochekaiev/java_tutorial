@@ -60,6 +60,8 @@ public class ContactCreationTest extends TestBase {
         newContact.setContactID(maxContactID);
         beforeTestContactsList.add(newContact);
         //TODO: :remove redundant lines
+        beforeTestContactsList = app.getContactHelper().sortAscending(beforeTestContactsList);
+        afterTestContactsList = app.getContactHelper().sortAscending(afterTestContactsList);
         System.out.println();
         System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
         for (int i = 0; i < afterTestContactsList.size(); i++) {
@@ -70,6 +72,23 @@ public class ContactCreationTest extends TestBase {
             System.out.println();
         }
         //TODO: :end of redundant lines
+//        List<AccountMap> beforeTestContactsListArranged = new AccountMap;
+//        List<AccountMap> afterTestContactsListArranged = new AccountMap;
+//        *
+//        // тут надо написать способ получения упорядоченных массивов контактов по возрастанию contactID
+//
+//        int minAccountID = 0;
+//        for (int i = 0; i < afterTestContactsList.size(); i++) {
+//            for (int j = 0; j < i; j++) {
+//                if (minAccountID <= beforeTestContactsList.get(j).getContactID()) {
+//                    maxContactID = beforeTestContactsList.get(j).getContactID();
+//                    *
+//                     * и что-то ещё в том же духе
+//
+//                }
+//            }
+//        }
+
         Assert.assertEquals(new HashSet<Object>(afterTestContactsList), new HashSet<Object>(beforeTestContactsList));
     }
 
