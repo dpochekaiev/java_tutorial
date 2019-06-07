@@ -1,9 +1,11 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
+import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -86,6 +88,9 @@ public class ContactModificationTest extends TestBase {
         }
         //TODO: :end of redundant lines
 
-        Assert.assertEquals(new HashSet<Object>(afterTestContactsList), new HashSet<Object>(beforeTestContactsList));
+        Comparator<? super AccountMap> byContactID = (g1, g2) -> Integer.compare(g1.getContactID(), g2.getContactID());
+        beforeTestContactsList.sort(byContactID);
+        afterTestContactsList.sort(byContactID);
+        Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
     }
 }

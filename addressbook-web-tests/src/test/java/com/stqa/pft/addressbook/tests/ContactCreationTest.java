@@ -4,6 +4,7 @@ package com.stqa.pft.addressbook.tests;
         import org.testng.Assert;
         import org.testng.annotations.*;
 
+        import java.util.Comparator;
         import java.util.HashSet;
         import java.util.List;
 
@@ -57,7 +58,6 @@ public class ContactCreationTest extends TestBase {
 //                maxContactID = contact.getContactID();
 //            }
 //        }
-
         int maxContactID = afterTestContactsList.stream().max((o1, o2) -> Integer.compare(o1.getContactID(), o2.getContactID())).get().getContactID();
         newContact.setContactID(maxContactID);
         beforeTestContactsList.add(newContact);
@@ -91,7 +91,10 @@ public class ContactCreationTest extends TestBase {
 //            }
 //        }
 
-        Assert.assertEquals(new HashSet<Object>(afterTestContactsList), new HashSet<Object>(beforeTestContactsList));
+        Comparator<? super AccountMap> byContactID = (g1, g2) -> Integer.compare(g1.getContactID(), g2.getContactID());
+        beforeTestContactsList.sort(byContactID);
+        afterTestContactsList.sort(byContactID);
+        Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
     }
 
 }

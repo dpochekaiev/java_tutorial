@@ -4,6 +4,7 @@ import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class GroupRemoveTest extends TestBase {
@@ -37,7 +38,10 @@ public class GroupRemoveTest extends TestBase {
         Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() - 1);
 
         beforeTestGroupsList.remove(selectedGroupIndex);
-        Assert.assertEquals(afterTestGroupsList, beforeTestGroupsList);
+        Comparator<? super GroupMap> byGroupID = (g1, g2) -> Integer.compare(g1.getGroupId(), g2.getGroupId());
+        beforeTestGroupsList.sort(byGroupID);
+        afterTestGroupsList.sort(byGroupID);
+        Assert.assertEquals(beforeTestGroupsList, afterTestGroupsList);
 
         //TODO: :remove redundant lines
         System.out.println();

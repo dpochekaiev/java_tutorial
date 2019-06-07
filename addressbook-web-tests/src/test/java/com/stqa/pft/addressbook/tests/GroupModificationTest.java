@@ -4,6 +4,7 @@ import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -42,7 +43,10 @@ public class GroupModificationTest extends TestBase {
 
         beforeTestGroupsList.remove(selectedGroupIndex);
         beforeTestGroupsList.add(newGroup);
-        Assert.assertEquals(new HashSet<Object>(afterTestGroupsList), new HashSet<Object>(beforeTestGroupsList));
+        Comparator<? super GroupMap> byGroupID = (g1, g2) -> Integer.compare(g1.getGroupId(), g2.getGroupId());
+        beforeTestGroupsList.sort(byGroupID);
+        afterTestGroupsList.sort(byGroupID);
+        Assert.assertEquals(beforeTestGroupsList, afterTestGroupsList);;
 
         //TODO: :remove redundant lines
         System.out.println();

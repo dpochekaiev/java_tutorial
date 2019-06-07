@@ -4,6 +4,7 @@ import com.stqa.pft.addressbook.model.AccountMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class ContactRemoveTest extends TestBase {
@@ -41,7 +42,10 @@ public class ContactRemoveTest extends TestBase {
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() - 1);
 
         beforeTestContactsList.remove(contactToRemoveIndex);
-        Assert.assertEquals(afterTestContactsList, beforeTestContactsList);
+        Comparator<? super AccountMap> byContactID = (g1, g2) -> Integer.compare(g1.getContactID(), g2.getContactID());
+        beforeTestContactsList.sort(byContactID);
+        afterTestContactsList.sort(byContactID);
+        Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
 
         //TODO: :remove redundant lines
         System.out.println();
