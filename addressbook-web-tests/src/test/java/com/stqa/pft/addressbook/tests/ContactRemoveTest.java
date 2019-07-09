@@ -1,7 +1,6 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,7 +19,7 @@ public class ContactRemoveTest extends TestBase {
                 "", "", "", "", "",
                 null, null, null);
 
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().homePage();
         if (!app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact(dummyContact, true);
         }
@@ -38,7 +37,7 @@ public class ContactRemoveTest extends TestBase {
         List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
         app.getContactHelper().selectContactByIndex(contactToRemoveIndex);
         app.getContactHelper().deleteSelectedContact();
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().homePage();
 
 // outcoming part
         List<AccountMap> afterTestContactsList = app.getContactHelper().getContactList();

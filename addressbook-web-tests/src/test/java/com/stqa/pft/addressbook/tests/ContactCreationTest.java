@@ -5,7 +5,6 @@ package com.stqa.pft.addressbook.tests;
         import org.testng.annotations.*;
 
         import java.util.Comparator;
-        import java.util.HashSet;
         import java.util.List;
 
 public class ContactCreationTest extends TestBase {
@@ -42,7 +41,7 @@ public class ContactCreationTest extends TestBase {
 //                "test1" );
 
 // test part
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().homePage();
         List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
         app.getContactHelper().createContact(newContact, true);
 

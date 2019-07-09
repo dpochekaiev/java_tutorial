@@ -14,7 +14,7 @@ public class GroupRemoveTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
-        app.getNavigationHelper().gotoGroupPage();
+        app.goTo().groupPage();
         if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup(new GroupMap("test1", "Some Dummy Group", null));
         }

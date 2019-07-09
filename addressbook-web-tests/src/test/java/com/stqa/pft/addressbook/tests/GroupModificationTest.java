@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 
@@ -14,7 +13,7 @@ public class GroupModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
-        app.getNavigationHelper().gotoGroupPage();
+        app.goTo().groupPage();
         if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup(new GroupMap("test1", "Some Dummy Group", null));
         }
