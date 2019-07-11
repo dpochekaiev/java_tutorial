@@ -105,15 +105,25 @@ public class ApplicationManager {
         }
     }
 
-    public GroupHelper getGroupHelper() {
+    /**
+     * Method returns the group helper to have an access to all helper's methods
+     */
+    public GroupHelper group() {
         return groupHelper;
     }
 
-    public NavigationHelper getNavigationHelper() {
+    /**
+     * Method returns the navigation helper to have an access to all helper's methods
+     */
+    public NavigationHelper goTo() {
         return navigationHelper;
     }
 
-    public ContactHelper getContactHelper() {
+    /**
+     * Method returns the contact helper to have an access to all helper's methods
+     */
+    public ContactHelper contact() {
         return contactHelper;
     }
+
 }

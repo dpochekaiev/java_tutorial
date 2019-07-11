@@ -58,7 +58,10 @@ public class GroupHelper extends HelperBase{
         click(By.name("update"));
     }
 
-    public void createGroup(GroupMap testGroup) {
+    /**
+     * Creates a new group
+     */
+    public void create(GroupMap testGroup) {
         initGroupCreation();
         fillGroupForm(testGroup);
         submitGroupCreation();
@@ -73,7 +76,10 @@ public class GroupHelper extends HelperBase{
         return driver.findElements(By.name("selected[]")).size();
     }
 
-    public List<GroupMap> getGroupList() {
+    /**
+     * @return a list of groups
+     */
+    public List<GroupMap> list() {
         List<GroupMap> groups = new ArrayList<GroupMap>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
@@ -85,11 +91,27 @@ public class GroupHelper extends HelperBase{
         return groups;
     }
 
-    public void modifyGroup(int selectedGroupIndex, GroupMap newGroup) {
+    /**
+     * Modifies a group
+     * @param selectedGroupIndex
+     * @param newGroup
+     */
+    public void modify(int selectedGroupIndex, GroupMap newGroup) {
         selectGroupByIndex(selectedGroupIndex);
         initGroupModification();
         fillGroupForm(newGroup);
         submitGroupUpate();
         returnToGroupPage();
     }
+
+    /**
+     * deletes a group by index
+     * @param index
+     */
+    public void delete(int index) {
+       selectGroupByIndex(index);
+       deleteSelectedGroups();
+       returnToGroupPage();
+    }
+
 }

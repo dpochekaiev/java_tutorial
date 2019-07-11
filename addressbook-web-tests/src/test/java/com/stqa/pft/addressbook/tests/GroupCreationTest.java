@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTest extends TestBase {
@@ -18,14 +17,14 @@ public class GroupCreationTest extends TestBase {
 
         GroupMap testGroup = new GroupMap("test1", "test2", "test3");
         //GroupMap testGroup = new GroupMap("test1", null, null);
-        app.getNavigationHelper().gotoGroupPage();
+        app.goTo().groupPage();
 
 // test part
-        List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
-        app.getGroupHelper().createGroup(testGroup);
+        List<GroupMap> beforeTestGroupsList = app.group().list();
+        app.group().create(testGroup);
 
 // outcoming part
-        List<GroupMap> afterTestGroupsList = app.getGroupHelper().getGroupList();
+        List<GroupMap> afterTestGroupsList = app.group().list();
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() + 1);

@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 
@@ -14,9 +13,9 @@ public class GroupModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
-        app.getNavigationHelper().gotoGroupPage();
-        if (!app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupMap("test1", "Some Dummy Group", null));
+        app.goTo().groupPage();
+        if (app.group().list().size() == 0) {
+            app.group().create(new GroupMap("test1", "Some Dummy Group", null));
         }
     }
 
@@ -26,17 +25,17 @@ public class GroupModificationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testGroupModification");
 
-        List<GroupMap> startingTestGroupsList = app.getGroupHelper().getGroupList();
-        List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
+        List<GroupMap> startingTestGroupsList = app.group().list();
+        List<GroupMap> beforeTestGroupsList = app.group().list();
 
         int selectedGroupIndex = beforeTestGroupsList.size() - 1;
         GroupMap newGroup = new GroupMap(beforeTestGroupsList.get(selectedGroupIndex).getGroupId(), "Edit1", "Edit_2", "Edit 3");
 
 // test part
-        app.getGroupHelper().modifyGroup(selectedGroupIndex, newGroup);
+        app.group().modify(selectedGroupIndex, newGroup);
 
 // outcoming part
-        List<GroupMap> afterTestGroupsList = app.getGroupHelper().getGroupList();
+        List<GroupMap> afterTestGroupsList = app.group().list();
         System.out.println("Initially groups before test: " + startingTestGroupsList.size());
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());

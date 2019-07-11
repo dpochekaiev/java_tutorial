@@ -5,7 +5,6 @@ package com.stqa.pft.addressbook.tests;
         import org.testng.annotations.*;
 
         import java.util.Comparator;
-        import java.util.HashSet;
         import java.util.List;
 
 public class ContactCreationTest extends TestBase {
@@ -42,12 +41,12 @@ public class ContactCreationTest extends TestBase {
 //                "test1" );
 
 // test part
-        app.getNavigationHelper().gotoHomePage();
-        List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
-        app.getContactHelper().createContact(newContact, true);
+        app.goTo().homePage();
+        List<AccountMap> beforeTestContactsList = app.contact().list();
+        app.contact().create(newContact, true);
 
 // outcoming part
-        List<AccountMap> afterTestContactsList = app.getContactHelper().getContactList();
+        List<AccountMap> afterTestContactsList = app.contact().list();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() + 1);
@@ -56,8 +55,8 @@ public class ContactCreationTest extends TestBase {
         newContact.setContactID(maxContactID);
         beforeTestContactsList.add(newContact);
         //TODO: :remove redundant lines
-        beforeTestContactsList = app.getContactHelper().sortAscending(beforeTestContactsList);
-        afterTestContactsList = app.getContactHelper().sortAscending(afterTestContactsList);
+        beforeTestContactsList = app.contact().sortAscending(beforeTestContactsList);
+        afterTestContactsList = app.contact().sortAscending(afterTestContactsList);
         System.out.println();
         System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
         for (int i = 0; i < afterTestContactsList.size(); i++) {

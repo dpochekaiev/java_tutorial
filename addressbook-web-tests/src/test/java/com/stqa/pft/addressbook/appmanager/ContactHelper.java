@@ -64,6 +64,13 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
+    public void returnToHomePage() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.linkText("home"));
+    }
+
     public void selectContact() {
         click(By.name("selected[]"));
     }
@@ -82,7 +89,12 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(AccountMap contact, boolean creation) {
+    /**
+     * Creates a new contact
+     * @param contact
+     * @param creation
+     */
+    public void create(AccountMap contact, boolean creation) {
         initContactCreation();
         fillContactForm(contact, creation);
         submitContactCreation();
@@ -94,7 +106,10 @@ public class ContactHelper extends HelperBase {
         return driver.findElements(By.xpath(editContactLinkSelector)).size();
     }
 
-    public List<AccountMap> getContactList() {
+    /**
+     * Returns a list of contacts
+     */
+    public List<AccountMap> list() {
         List<AccountMap> accounts = new ArrayList<AccountMap>();
         List<WebElement> elements = driver.findElements(By.xpath(editContactLinkSelector));
         List<WebElement> surnames = driver.findElements(By.xpath("//tr[@name='entry']/td[2]"));
@@ -143,11 +158,27 @@ public class ContactHelper extends HelperBase {
 
     }
 
-    public void modifyContact(int editContactIndex, AccountMap editedContact) {
+    /**
+     * Modifies a contact by index
+     * @param editContactIndex
+     * @param editedContact
+     */
+    public void modify(int editContactIndex, AccountMap editedContact) {
         editContactByIndex(editContactIndex);
         fillContactForm(editedContact, false);
         submitContactUpdate();
         returnToMainPage();
+    }
+
+    /**
+     * Removes contact by index
+     * @param contactToRemoveIndex
+     */
+    public void remove(int contactToRemoveIndex) {
+       selectContactByIndex(contactToRemoveIndex);
+        deleteSelectedContact();
+        returnToHomePage();
+
     }
 
 }

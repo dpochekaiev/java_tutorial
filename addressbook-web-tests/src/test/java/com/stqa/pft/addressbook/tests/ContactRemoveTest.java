@@ -1,7 +1,6 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,9 +19,9 @@ public class ContactRemoveTest extends TestBase {
                 "", "", "", "", "",
                 null, null, null);
 
-        app.getNavigationHelper().gotoHomePage();
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(dummyContact, true);
+        app.goTo().homePage();
+        if (app.contact().list().size() == 0) {
+            app.contact().create(dummyContact, true);
         }
     }
 
@@ -32,17 +31,13 @@ public class ContactRemoveTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testContactRemove");
         int contactToRemoveIndex = 0;
-        List<AccountMap> startingTestContactsList = app.getContactHelper().getContactList();
+        List<AccountMap> beforeTestContactsList = app.contact().list();
 
 // test part
-        List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
-        app.getContactHelper().selectContactByIndex(contactToRemoveIndex);
-        app.getContactHelper().deleteSelectedContact();
-        app.getNavigationHelper().gotoHomePage();
+        app.contact().remove(contactToRemoveIndex);
 
 // outcoming part
-        List<AccountMap> afterTestContactsList = app.getContactHelper().getContactList();
-        System.out.println("Initially contacts before test: " + startingTestContactsList.size());
+        List<AccountMap> afterTestContactsList = app.contact().list();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() - 1);
@@ -65,5 +60,6 @@ public class ContactRemoveTest extends TestBase {
         }
         //TODO: :end of redundant lines
     }
+
 
 }

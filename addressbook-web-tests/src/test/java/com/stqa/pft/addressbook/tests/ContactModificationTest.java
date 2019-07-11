@@ -1,13 +1,11 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTest extends TestBase {
@@ -21,9 +19,9 @@ public class ContactModificationTest extends TestBase {
                 "", "", "", "", "",
                 null, null, null);
 
-        app.getNavigationHelper().gotoHomePage();
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(dummyContact, true);
+        app.goTo().homePage();
+        if (app.contact().list().size() == 0) {
+            app.contact().create(dummyContact, true);
         }
     }
 
@@ -46,21 +44,21 @@ public class ContactModificationTest extends TestBase {
                 "1988",
                 null);
 
-        List<AccountMap> startingTestContactsList = app.getContactHelper().getContactList();
+        List<AccountMap> startingTestContactsList = app.contact().list();
 
 // test part
 
-        List<AccountMap> beforeTestContactsList = app.getContactHelper().getContactList();
-        app.getContactHelper().modifyContact(editContactIndex, editedContact);
+        List<AccountMap> beforeTestContactsList = app.contact().list();
+        app.contact().modify(editContactIndex, editedContact);
 
         //TODO: :following rows are workaround for bug in the application: a record is deleted instead of updating
-        app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(editedContact, true);
-        app.getContactHelper().submitContactCreation();
-        app.getContactHelper().returnToMainPage();
+        app.contact().initContactCreation();
+        app.contact().fillContactForm(editedContact, true);
+        app.contact().submitContactCreation();
+        app.contact().returnToMainPage();
 
 // outcoming part
-        List<AccountMap> afterTestContactsList = app.getContactHelper().getContactList();
+        List<AccountMap> afterTestContactsList = app.contact().list();
         System.out.println("Initially contacts before test: " + startingTestContactsList.size());
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
@@ -77,8 +75,8 @@ public class ContactModificationTest extends TestBase {
         beforeTestContactsList.add(editedContact);
 
         //TODO: :remove redundant lines
-        beforeTestContactsList = app.getContactHelper().sortAscending(beforeTestContactsList);
-        afterTestContactsList = app.getContactHelper().sortAscending(afterTestContactsList);
+        beforeTestContactsList = app.contact().sortAscending(beforeTestContactsList);
+        afterTestContactsList = app.contact().sortAscending(afterTestContactsList);
         System.out.println();
         System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
         for (int i = 0; i < afterTestContactsList.size(); i++) {

@@ -14,9 +14,9 @@ public class GroupRemoveTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
-        app.getNavigationHelper().gotoGroupPage();
-        if (!app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupMap("test1", "Some Dummy Group", null));
+        app.goTo().groupPage();
+        if (!app.group().isThereAGroup()) {
+            app.group().create(new GroupMap("test1", "Some Dummy Group", null));
         }
     }
 
@@ -26,17 +26,13 @@ public class GroupRemoveTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testRemoveGroup");
 
-        List<GroupMap> startingTestGroupsList = app.getGroupHelper().getGroupList();
-        List<GroupMap> beforeTestGroupsList = app.getGroupHelper().getGroupList();
+        List<GroupMap> beforeTestGroupsList = app.group().list();
 
 // test part
-        app.getGroupHelper().selectGroupByIndex(selectedGroupIndex);
-        app.getGroupHelper().deleteSelectedGroups();
-        app.getGroupHelper().returnToGroupPage();
+        app.group().delete(selectedGroupIndex);
 
 // outcoming part
-        List<GroupMap> afterTestGroupsList = app.getGroupHelper().getGroupList();
-        System.out.println("Initially groups before test: " + startingTestGroupsList.size());
+        List<GroupMap> afterTestGroupsList = app.group().list();
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() - 1);
