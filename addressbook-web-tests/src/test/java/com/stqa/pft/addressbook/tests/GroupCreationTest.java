@@ -15,7 +15,7 @@ public class GroupCreationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testGroupCreation");
 
-        GroupMap testGroup = new GroupMap("test1", "test2", "test3");
+        GroupMap testGroup = new GroupMap().withGroupName("test1").withGroupHeader("test2").withGroupFooter("test3");
         //GroupMap testGroup = new GroupMap("test1", null, null);
         app.goTo().groupPage();
 
@@ -57,7 +57,7 @@ public class GroupCreationTest extends TestBase {
          * испоьзование лябда-выражения (анонимной функции) для получения максимального значения groupID
          */
         int maxGroupID = afterTestGroupsList.stream().max((o1, o2) -> Integer.compare(o1.getGroupId(), o2.getGroupId())).get().getGroupId();
-        testGroup.setGroupId(maxGroupID);
+        testGroup.withGroupId(maxGroupID);
         beforeTestGroupsList.add(testGroup);
         Comparator<? super GroupMap> byGroupID = (g1, g2) -> Integer.compare(g1.getGroupId(), g2.getGroupId());
         beforeTestGroupsList.sort(byGroupID);

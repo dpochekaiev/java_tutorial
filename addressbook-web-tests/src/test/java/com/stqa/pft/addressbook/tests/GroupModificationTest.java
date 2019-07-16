@@ -15,7 +15,7 @@ public class GroupModificationTest extends TestBase {
     public void ensurePreConditions() {
         app.goTo().groupPage();
         if (app.group().list().size() == 0) {
-            app.group().create(new GroupMap("test1", "Some Dummy Group", null));
+            app.group().create(new GroupMap().withGroupName("test1").withGroupHeader("Some Dummy Group"));
         }
     }
 
@@ -29,7 +29,8 @@ public class GroupModificationTest extends TestBase {
         List<GroupMap> beforeTestGroupsList = app.group().list();
 
         int selectedGroupIndex = beforeTestGroupsList.size() - 1;
-        GroupMap newGroup = new GroupMap(beforeTestGroupsList.get(selectedGroupIndex).getGroupId(), "Edit1", "Edit_2", "Edit 3");
+        GroupMap newGroup = new GroupMap().
+                withGroupId(beforeTestGroupsList.get(selectedGroupIndex).getGroupId()).withGroupName("Edit1").withGroupHeader("Edit_2").withGroupFooter("Edit 3");
 
 // test part
         app.group().modify(selectedGroupIndex, newGroup);
