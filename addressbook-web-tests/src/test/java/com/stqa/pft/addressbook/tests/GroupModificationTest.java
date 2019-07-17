@@ -4,9 +4,7 @@ import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.Comparator;
-import java.util.List;
+import java.util.Set;
 
 
 public class GroupModificationTest extends TestBase {
@@ -14,7 +12,7 @@ public class GroupModificationTest extends TestBase {
     @BeforeMethod
     public void ensurePreConditions() {
         app.goTo().groupPage();
-        if (app.group().list().size() == 0) {
+        if (app.group().all().size() == 0) {
             app.group().create(new GroupMap().withGroupName("test1").withGroupHeader("Some Dummy Group"));
         }
     }
@@ -25,35 +23,24 @@ public class GroupModificationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testGroupModification");
 
-        List<GroupMap> startingTestGroupsList = app.group().list();
-        List<GroupMap> beforeTestGroupsList = app.group().list();
-
-        int selectedGroupIndex = beforeTestGroupsList.size() - 1;
+        Set<GroupMap> startingTestGroupsList = app.group().all();
+        Set<GroupMap> beforeTestGroupsList = app.group().all();
+        GroupMap groupForModification = beforeTestGroupsList.iterator().next();
         GroupMap newGroup = new GroupMap().
-                withGroupId(beforeTestGroupsList.get(selectedGroupIndex).getGroupId()).withGroupName("Edit1").withGroupHeader("Edit_2").withGroupFooter("Edit 3");
+                withGroupId(groupForModification.getGroupId()).withGroupName("Edit1").withGroupHeader("Edit_2").withGroupFooter("Edit 3");
 
 // test part
-        app.group().modify(selectedGroupIndex, newGroup);
+        app.group().modify(newGroup);
 
 // outcoming part
-        List<GroupMap> afterTestGroupsList = app.group().list();
+        Set<GroupMap> afterTestGroupsList = app.group().all();
         System.out.println("Initially groups before test: " + startingTestGroupsList.size());
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size());
 
-        beforeTestGroupsList.remove(selectedGroupIndex);
+        beforeTestGroupsList.remove(groupForModification);
         beforeTestGroupsList.add(newGroup);
-        Comparator<? super GroupMap> byGroupID = (g1, g2) -> Integer.compare(g1.getGroupId(), g2.getGroupId());
-        beforeTestGroupsList.sort(byGroupID);
-        afterTestGroupsList.sort(byGroupID);
-        //TODO: :remove redundant lines
-        System.out.println();
-        System.out.println("beforeTestGroupsList" + "                              " + "afterTestGroupsList");
-        for (int i = 0; i < afterTestGroupsList.size(); i++) {
-            System.out.println(beforeTestGroupsList.get(i) + "    " + afterTestGroupsList.get(i));
-        }
-        //TODO: :end of redundant lines
         Assert.assertEquals(beforeTestGroupsList, afterTestGroupsList);;
     }
 

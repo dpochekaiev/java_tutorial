@@ -8,20 +8,7 @@ public class GroupMap {
     private  String groupName;
     private  String groupHeader;
     private  String groupFooter;
-/*
-    public GroupMap(String groupName, String groupHeader, String groupFooter) {
-        this.groupId = 0;
-        this.groupName = groupName;
-        this.groupHeader = groupHeader;
-        this.groupFooter = groupFooter;
-    }
-    public GroupMap(int groupId, String groupName, String groupHeader, String groupFooter) {
-        this.groupId = groupId;
-        this.groupName = groupName;
-        this.groupHeader = groupHeader;
-        this.groupFooter = groupFooter;
-    }
-*/
+
     public int getGroupId() {
         return groupId;
     }

@@ -5,8 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupHelper extends HelperBase{
 
@@ -41,13 +42,8 @@ public class GroupHelper extends HelperBase{
         click(By.xpath("//input[@type='submit' and @name='delete' and @value='Delete group(s)']"));
     }
 
-    public void selectGroup() {
-        click(By.name("selected[]"));
-    }
-
-    public void selectGroupByIndex(int selectedGroupIndex) {
-        driver.findElements(By.name("selected[]")).get(selectedGroupIndex).click();
-
+    private void selectGroupById(int groupForDeletionId) {
+        driver.findElement(By.cssSelector("input[value='" + groupForDeletionId +  "']")).click();
     }
 
     public void initGroupModification() {
@@ -77,10 +73,10 @@ public class GroupHelper extends HelperBase{
     }
 
     /**
-     * @return a list of groups
+     * @return a set of groups
      */
-    public List<GroupMap> list() {
-        List<GroupMap> groups = new ArrayList<GroupMap>();
+    public Set<GroupMap> all() {
+        Set<GroupMap> groups = new HashSet<GroupMap>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             int groupId = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
@@ -93,25 +89,19 @@ public class GroupHelper extends HelperBase{
 
     /**
      * Modifies a group
-     * @param selectedGroupIndex
-     * @param newGroup
      */
-    public void modify(int selectedGroupIndex, GroupMap newGroup) {
-        selectGroupByIndex(selectedGroupIndex);
+    public void modify(GroupMap group) {
+        selectGroupById(group.getGroupId());
         initGroupModification();
-        fillGroupForm(newGroup);
+        fillGroupForm(group);
         submitGroupUpate();
         returnToGroupPage();
     }
 
-    /**
-     * deletes a group by index
-     * @param index
-     */
-    public void delete(int index) {
-       selectGroupByIndex(index);
-       deleteSelectedGroups();
-       returnToGroupPage();
+    public void delete(GroupMap groupForDeletion) {
+        selectGroupById(groupForDeletion.getGroupId());
+        deleteSelectedGroups();
+        returnToGroupPage();
     }
 
 }
