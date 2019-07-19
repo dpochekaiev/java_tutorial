@@ -1,6 +1,7 @@
 package com.stqa.pft.addressbook.appmanager;
 
 import com.stqa.pft.addressbook.model.GroupMap;
+import com.stqa.pft.addressbook.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,8 +76,8 @@ public class GroupHelper extends HelperBase{
     /**
      * @return a set of groups
      */
-    public Set<GroupMap> all() {
-        Set<GroupMap> groups = new HashSet<GroupMap>();
+    public Groups all() {
+        Groups groups = new Groups();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             int groupId = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));

@@ -1,10 +1,16 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.GroupMap;
+import com.stqa.pft.addressbook.model.Groups;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 
 public class GroupModificationTest extends TestBase {
@@ -23,8 +29,8 @@ public class GroupModificationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testGroupModification");
 
-        Set<GroupMap> startingTestGroupsList = app.group().all();
-        Set<GroupMap> beforeTestGroupsList = app.group().all();
+        Groups startingTestGroupsList = app.group().all();
+        Groups beforeTestGroupsList = app.group().all();
         GroupMap groupForModification = beforeTestGroupsList.iterator().next();
         GroupMap newGroup = new GroupMap().
                 withGroupId(groupForModification.getGroupId()).withGroupName("Edit1").withGroupHeader("Edit_2").withGroupFooter("Edit 3");
@@ -33,15 +39,12 @@ public class GroupModificationTest extends TestBase {
         app.group().modify(newGroup);
 
 // outcoming part
-        Set<GroupMap> afterTestGroupsList = app.group().all();
+        Groups afterTestGroupsList = app.group().all();
         System.out.println("Initially groups before test: " + startingTestGroupsList.size());
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
-        Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size());
-
-        beforeTestGroupsList.remove(groupForModification);
-        beforeTestGroupsList.add(newGroup);
-        Assert.assertEquals(beforeTestGroupsList, afterTestGroupsList);;
+        assertThat(afterTestGroupsList.size(), equalTo(beforeTestGroupsList.size()));
+        assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList.without(groupForModification).withAdded(newGroup)));
     }
 
 

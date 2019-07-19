@@ -1,9 +1,11 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.GroupMap;
-import org.testng.Assert;
+import com.stqa.pft.addressbook.model.Groups;
 import org.testng.annotations.*;
-import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class GroupCreationTest extends TestBase {
 
@@ -16,18 +18,16 @@ public class GroupCreationTest extends TestBase {
         app.goTo().groupPage();
 
 // test part
-        Set<GroupMap> beforeTestGroupsList = app.group().all();
+        Groups beforeTestGroupsList = app.group().all();
         app.group().create(testGroup);
 
 // outcoming part
-        Set<GroupMap> afterTestGroupsList = app.group().all();
+        Groups afterTestGroupsList = app.group().all();
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
-        Assert.assertEquals(afterTestGroupsList.size(), beforeTestGroupsList.size() + 1);
-
-        testGroup.withGroupId(afterTestGroupsList.stream().mapToInt((g) -> g.getGroupId()).max().getAsInt());
-        beforeTestGroupsList.add(testGroup);
-        Assert.assertEquals(beforeTestGroupsList, afterTestGroupsList);
+        assertThat(afterTestGroupsList.size(), equalTo(beforeTestGroupsList.size() + 1));
+        assertThat(afterTestGroupsList, equalTo(
+                beforeTestGroupsList.withAdded(testGroup.withGroupId(afterTestGroupsList.stream().mapToInt((g) -> g.getGroupId()).max().getAsInt()))));
     }
 
 }
