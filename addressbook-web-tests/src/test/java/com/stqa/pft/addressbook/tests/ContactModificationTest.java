@@ -12,13 +12,7 @@ public class ContactModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
-        AccountMap dummyContact = new AccountMap(
-                "Just",
-                "A",
-                "Dummy contact",
-                "", "", "", "", "",
-                null, null, null);
-
+        AccountMap dummyContact = new AccountMap().withFirstName("Just").withMiddleName("A").withSurname("Dummy Contact");
         app.goTo().homePage();
         if (app.contact().list().size() == 0) {
             app.contact().create(dummyContact, true);
@@ -31,19 +25,9 @@ public class ContactModificationTest extends TestBase {
         System.out.println("================================================");
         System.out.println("Running testContactModification");
         int editContactIndex = 0;
-        AccountMap editedContact = new AccountMap(
-                "EditedName",
-                "E",
-                "EditedSurname",
-                "EditedCompany",
-                "EditedAddress",
-                "0800000111000",
-                "EdItEd@MaIl.DoT.cOm",
-                "",//  "9",
-                "April",
-                "1988",
-                null);
-
+        AccountMap editedContact = new AccountMap().withFirstName("EditedName").withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
+                .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withEmailFirst("EdItEd@MaIl.DoT.cOm").
+                        withMonthOfBirth("April").withYearOfBirth("2000");
         List<AccountMap> startingTestContactsList = app.contact().list();
 
 // test part

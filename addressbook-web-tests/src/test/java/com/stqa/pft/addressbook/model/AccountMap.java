@@ -4,18 +4,79 @@ import java.util.Objects;
 
 public class AccountMap {
 
-    private int contactID;
-    private final String first;
-    private final String middleName;
-    private final String surname;
-    private final String company;
-    private final String address;
-    private final String homePhoneNumber;
-    private final String emailFirst;
-    private final String dayOfBirth;
-    private final String monthOfBirth;
-    private final String yearOfBirth;
-    private final String group;
+    private int contactID = 0;
+    private  String first;
+    private  String middleName;
+    private  String surname;
+    private  String company;
+    private  String address;
+    private  String homePhoneNumber;
+    private  String emailFirst;
+    private  String dayOfBirth;
+    private  String monthOfBirth;
+    private  String yearOfBirth;
+
+    public AccountMap withContactID(int contactID) {
+        this.contactID = contactID;
+        return this;
+    }
+
+    public AccountMap withFirstName(String first) {
+        this.first = first;
+        return this;
+    }
+
+    public AccountMap withMiddleName(String middleName) {
+        this.middleName = middleName;
+        return this;
+    }
+
+    public AccountMap withSurname(String surname) {
+        this.surname = surname;
+        return this;
+    }
+
+    public AccountMap withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public AccountMap withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public AccountMap withHomePhoneNumber(String homePhoneNumber) {
+        this.homePhoneNumber = homePhoneNumber;
+        return this;
+    }
+
+    public AccountMap withEmailFirst(String emailFirst) {
+        this.emailFirst = emailFirst;
+        return this;
+    }
+
+    public AccountMap withDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
+        return this;
+    }
+
+    public AccountMap withMonthOfBirth(String monthOfBirth) {
+        this.monthOfBirth = monthOfBirth;
+        return this;
+    }
+
+    public AccountMap withYearOfBirth(String yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+        return this;
+    }
+
+    public AccountMap withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
+    private  String group;
 
     public int getContactID() {
         return contactID;
@@ -25,6 +86,8 @@ public class AccountMap {
         this.contactID = contactID;
     }
 
+    //TODO: two following constructors must be deleted after debugging
+/*
     public AccountMap(int contactID, String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth, String group) {
         this.contactID = contactID;
         this.first = first;
@@ -54,6 +117,7 @@ public class AccountMap {
         this.yearOfBirth = yearOfBirth;
         this.group = group;
     }
+    */
 
     public String getFirst() {
         return first;

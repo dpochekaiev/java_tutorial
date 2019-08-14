@@ -14,6 +14,10 @@ public class ContactCreationTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactCreation");
+        AccountMap newContact = new AccountMap().withFirstName("Neko Name").withMiddleName("S").withSurname("Family Name").withCompany("Some Company")
+                .withAddress("Some address").withHomePhoneNumber("123456789").withEmailFirst("email.mail.com").withDayOfBirth("13").withMonthOfBirth("07")
+                .withYearOfBirth("1988").withGroup("test1");
+        /*
         AccountMap newContact = new AccountMap(
                 "First",
                 "M",
@@ -26,6 +30,7 @@ public class ContactCreationTest extends TestBase {
                 "January",
                 "1900",
                 "test1");
+                */
 
 //        AccountMap newContact = new AccountMap(
 //                "Name",

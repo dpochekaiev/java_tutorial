@@ -127,9 +127,8 @@ public class ContactHelper extends HelperBase {
             i++;
             String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
             int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath)).getAttribute("value"));
-            AccountMap account = new AccountMap(contactID, name, null, surname, null, address,phone, email,
-                    null, null, null, null);
-            accounts.add(account);
+            accounts.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
+                    .withAddress(address).withHomePhoneNumber(phone).withEmailFirst(email));
         }
         return accounts;
     }

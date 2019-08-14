@@ -12,13 +12,7 @@ public class ContactRemoveTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
-        AccountMap dummyContact = new AccountMap(
-                "Just",
-                "A",
-                "Dummy contact",
-                "", "", "", "", "",
-                null, null, null);
-
+        AccountMap dummyContact = new AccountMap().withFirstName("Just").withMiddleName("A").withSurname("Dummy Contact");
         app.goTo().homePage();
         if (app.contact().list().size() == 0) {
             app.contact().create(dummyContact, true);
