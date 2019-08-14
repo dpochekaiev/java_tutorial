@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ContactModificationTest extends TestBase {
 
@@ -24,16 +25,16 @@ public class ContactModificationTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactModification");
-        int editContactIndex = 0;
-        AccountMap editedContact = new AccountMap().withFirstName("EditedName").withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
-                .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withEmailFirst("EdItEd@MaIl.DoT.cOm").
-                        withMonthOfBirth("April").withYearOfBirth("2000");
-        List<AccountMap> startingTestContactsList = app.contact().list();
+        Set<AccountMap> beforeTestContactsList = app.contact().all();
+        AccountMap contactToEdit = beforeTestContactsList.iterator().next();
+        AccountMap editedContact = new AccountMap().withContactID(contactToEdit.getContactID()).withFirstName("EditedName")
+                .withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
+                .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withEmailFirst("EdItEd@MaIl.DoT.cOm")
+                .withMonthOfBirth("April").withYearOfBirth("2000");
+
 
 // test part
-
-        List<AccountMap> beforeTestContactsList = app.contact().list();
-        app.contact().modify(editContactIndex, editedContact);
+        app.contact().modify(editedContact);
 
         //TODO: :following rows are workaround for bug in the application: a record is deleted instead of updating
         app.contact().initContactCreation();
@@ -42,8 +43,7 @@ public class ContactModificationTest extends TestBase {
         app.contact().returnToMainPage();
 
 // outcoming part
-        List<AccountMap> afterTestContactsList = app.contact().list();
-        System.out.println("Initially contacts before test: " + startingTestContactsList.size());
+        Set<AccountMap> afterTestContactsList = app.contact().all();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size());
@@ -55,26 +55,8 @@ public class ContactModificationTest extends TestBase {
             }
         }
         editedContact.setContactID(maxContactID);
-        beforeTestContactsList.remove(editContactIndex);
+        beforeTestContactsList.remove(contactToEdit);
         beforeTestContactsList.add(editedContact);
-
-        //TODO: :remove redundant lines
-        beforeTestContactsList = app.contact().sortAscending(beforeTestContactsList);
-        afterTestContactsList = app.contact().sortAscending(afterTestContactsList);
-        System.out.println();
-        System.out.println("Comparing: beforeTestGroupsList and" + " " + "afterTestGroupsList");
-        for (int i = 0; i < afterTestContactsList.size(); i++) {
-//            System.out.println(beforeTestContactsList.get(i) + "        " + afterTestContactsList.get(i));
-            System.out.println("    Record № " + i);
-            System.out.println("before: " + beforeTestContactsList.get(i));
-            System.out.println("after:  " + afterTestContactsList.get(i));
-            System.out.println();
-        }
-        //TODO: :end of redundant lines
-
-        Comparator<? super AccountMap> byContactID = (g1, g2) -> Integer.compare(g1.getContactID(), g2.getContactID());
-        beforeTestContactsList.sort(byContactID);
-        afterTestContactsList.sort(byContactID);
         Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
     }
 

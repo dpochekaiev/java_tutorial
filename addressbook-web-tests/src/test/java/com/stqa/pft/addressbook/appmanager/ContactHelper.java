@@ -7,7 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -56,6 +58,10 @@ public class ContactHelper extends HelperBase {
         driver.findElements(By.xpath(editContactLinkSelector)).get(editContactIndex).click();
     }
 
+    public void editContactByID(int editContactID) {
+        driver.findElement(By.cssSelector("a[href='edit.php?id=" + editContactID + "'")).click();
+    }
+
     public void submitContactUpdate() {
         click(By.name("update"));
     }
@@ -73,6 +79,10 @@ public class ContactHelper extends HelperBase {
 
     public void selectContact() {
         click(By.name("selected[]"));
+    }
+
+    public void selectContactByID(int accountID) {
+        click(By.cssSelector("input[value='" + accountID + "']"));
     }
 
     public void selectContactByIndex(int selectContactIndex) {
@@ -133,6 +143,33 @@ public class ContactHelper extends HelperBase {
         return accounts;
     }
 
+    /**
+     * Returns a set of contacts
+     */
+    public Set<AccountMap> all() {
+        Set<AccountMap> accounts = new HashSet<AccountMap>();
+        List<WebElement> elements = driver.findElements(By.xpath(editContactLinkSelector));
+        List<WebElement> surnames = driver.findElements(By.xpath("//tr[@name='entry']/td[2]"));
+        List<WebElement> names = driver.findElements(By.xpath("//tr[@name='entry']/td[3]"));
+        List<WebElement> addresses = driver.findElements(By.xpath("//tr[@name='entry']/td[4]"));
+        List<WebElement> emails = driver.findElements(By.xpath("//tr[@name='entry']/td[5]"));
+        List<WebElement> phones = driver.findElements(By.xpath("//tr[@name='entry']/td[6]"));
+        int i = 0;
+        for (WebElement element : elements) {
+            String surname = surnames.get(i).getText();
+            String name = names.get(i).getText();
+            String address = addresses.get(i).getText();
+            String email = emails.get(i).getText();
+            String phone = phones.get(i).getText();
+            i++;
+            String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
+            int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath)).getAttribute("value"));
+            accounts.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
+                    .withAddress(address).withHomePhoneNumber(phone).withEmailFirst(email));
+        }
+        return accounts;
+    }
+
     public List<AccountMap> sortAscending (List<AccountMap> contactList) {
         if (contactList.size() < 2) {
             return contactList;
@@ -159,11 +196,11 @@ public class ContactHelper extends HelperBase {
 
     /**
      * Modifies a contact by index
-     * @param editContactIndex
+
      * @param editedContact
      */
-    public void modify(int editContactIndex, AccountMap editedContact) {
-        editContactByIndex(editContactIndex);
+    public void modify(AccountMap editedContact) {
+        editContactByID(editedContact.getContactID());
         fillContactForm(editedContact, false);
         submitContactUpdate();
         returnToMainPage();
@@ -180,4 +217,9 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    public void remove(AccountMap contactToDelete) {
+        selectContactByID(contactToDelete.getContactID());
+        deleteSelectedContact();
+        returnToHomePage();
+    }
 }

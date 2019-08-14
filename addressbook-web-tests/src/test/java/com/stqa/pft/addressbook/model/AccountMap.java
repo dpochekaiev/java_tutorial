@@ -86,39 +86,6 @@ public class AccountMap {
         this.contactID = contactID;
     }
 
-    //TODO: two following constructors must be deleted after debugging
-/*
-    public AccountMap(int contactID, String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth, String group) {
-        this.contactID = contactID;
-        this.first = first;
-        this.middleName = middleName;
-        this.surname = surname;
-        this.company = company;
-        this.address = address;
-        this.homePhoneNumber = homePhoneNumber;
-        this.emailFirst = emailFirst;
-        this.dayOfBirth = dayOfBirth;
-        this.monthOfBirth = monthOfBirth;
-        this.yearOfBirth = yearOfBirth;
-        this.group = group;
-    }
-
-    public AccountMap(String first, String middleName, String surname, String company, String address, String homePhoneNumber, String emailFirst, String dayOfBirth, String monthOfBirth, String yearOfBirth, String group) {
-        this.contactID = 0;
-        this.first = first;
-        this.middleName = middleName;
-        this.surname = surname;
-        this.company = company;
-        this.address = address;
-        this.homePhoneNumber = homePhoneNumber;
-        this.emailFirst = emailFirst;
-        this.dayOfBirth = dayOfBirth;
-        this.monthOfBirth = monthOfBirth;
-        this.yearOfBirth = yearOfBirth;
-        this.group = group;
-    }
-    */
-
     public String getFirst() {
         return first;
     }
