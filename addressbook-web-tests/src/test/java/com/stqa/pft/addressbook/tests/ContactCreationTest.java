@@ -1,12 +1,11 @@
 package com.stqa.pft.addressbook.tests;
 
         import com.stqa.pft.addressbook.model.AccountMap;
-        import org.testng.Assert;
+        import com.stqa.pft.addressbook.model.Accounts;
         import org.testng.annotations.*;
 
-        import java.util.Comparator;
-        import java.util.List;
-        import java.util.Set;
+        import static org.hamcrest.CoreMatchers.equalTo;
+        import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTest extends TestBase {
 
@@ -21,19 +20,19 @@ public class ContactCreationTest extends TestBase {
                 .withMonthOfBirth("January").withYearOfBirth("1988").withGroup("test1");
 // test part
         app.goTo().homePage();
-        Set<AccountMap> beforeTestContactsList = app.contact().all();
+        Accounts beforeTestContactsList = app.contact().all();
         app.contact().create(newContact, true);
 
 // outcoming part
-        Set<AccountMap> afterTestContactsList = app.contact().all();
+        Accounts afterTestContactsList = app.contact().all();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
-        Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() + 1);
+        assertThat(afterTestContactsList.size(), equalTo(beforeTestContactsList.size() + 1));
+        assertThat(afterTestContactsList, equalTo(beforeTestContactsList.withAdded(newContact.
+                withContactID(afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt()))));
 
-        int maxContactID = afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt();
-        newContact.setContactID(maxContactID);
-        beforeTestContactsList.add(newContact);
-        Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
+
+
     }
 
 }

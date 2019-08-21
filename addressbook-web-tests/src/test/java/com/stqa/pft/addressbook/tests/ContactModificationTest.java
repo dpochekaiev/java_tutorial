@@ -1,13 +1,13 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import org.testng.Assert;
+import com.stqa.pft.addressbook.model.Accounts;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class ContactModificationTest extends TestBase {
 
@@ -25,7 +25,7 @@ public class ContactModificationTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactModification");
-        Set<AccountMap> beforeTestContactsList = app.contact().all();
+        Accounts beforeTestContactsList = app.contact().all();
         AccountMap contactToEdit = beforeTestContactsList.iterator().next();
         AccountMap editedContact = new AccountMap().withContactID(contactToEdit.getContactID()).withFirstName("EditedName")
                 .withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
@@ -41,23 +41,15 @@ public class ContactModificationTest extends TestBase {
         app.contact().fillContactForm(editedContact, true);
         app.contact().submitContactCreation();
         app.contact().returnToMainPage();
+        //TODO: The end of workaround
 
 // outcoming part
-        Set<AccountMap> afterTestContactsList = app.contact().all();
+        Accounts afterTestContactsList = app.contact().all();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
-        Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size());
-
-        int maxContactID = 0;
-        for (AccountMap contact : afterTestContactsList) {
-            if (contact.getContactID() > maxContactID) {
-                maxContactID = contact.getContactID();
-            }
-        }
-        editedContact.setContactID(maxContactID);
-        beforeTestContactsList.remove(contactToEdit);
-        beforeTestContactsList.add(editedContact);
-        Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
+        assertEquals(afterTestContactsList.size(), beforeTestContactsList.size());
+        assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToEdit).withAdded(editedContact
+                .withContactID(afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt()))));
     }
 
 }

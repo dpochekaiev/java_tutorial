@@ -1,13 +1,12 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
-import org.testng.Assert;
+import com.stqa.pft.addressbook.model.Accounts;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class ContactRemoveTest extends TestBase {
 
@@ -25,20 +24,17 @@ public class ContactRemoveTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactRemove");
-        int contactToRemoveIndex = 0;
-        Set<AccountMap> beforeTestContactsList = app.contact().all();
+        Accounts beforeTestContactsList = app.contact().all();
         AccountMap contactToDelete = beforeTestContactsList.iterator().next();
 // test part
         app.contact().remove(contactToDelete);
 
 // outcoming part
-        Set<AccountMap> afterTestContactsList = app.contact().all();
+        Accounts afterTestContactsList = app.contact().all();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
-        Assert.assertEquals(afterTestContactsList.size(), beforeTestContactsList.size() - 1);
-
-        beforeTestContactsList.remove(contactToDelete);
-        Assert.assertEquals(beforeTestContactsList, afterTestContactsList);
+        assertThat(afterTestContactsList.size(), equalTo(beforeTestContactsList.size() - 1));
+        assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToDelete)));
 
     }
 

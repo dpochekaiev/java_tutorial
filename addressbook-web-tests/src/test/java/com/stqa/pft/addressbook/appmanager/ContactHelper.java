@@ -1,6 +1,7 @@
 package com.stqa.pft.addressbook.appmanager;
 
 import com.stqa.pft.addressbook.model.AccountMap;
+import com.stqa.pft.addressbook.model.Accounts;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
@@ -146,8 +147,8 @@ public class ContactHelper extends HelperBase {
     /**
      * Returns a set of contacts
      */
-    public Set<AccountMap> all() {
-        Set<AccountMap> accounts = new HashSet<AccountMap>();
+    public Accounts all() {
+        Accounts accounts = new Accounts();
         List<WebElement> elements = driver.findElements(By.xpath(editContactLinkSelector));
         List<WebElement> surnames = driver.findElements(By.xpath("//tr[@name='entry']/td[2]"));
         List<WebElement> names = driver.findElements(By.xpath("//tr[@name='entry']/td[3]"));
