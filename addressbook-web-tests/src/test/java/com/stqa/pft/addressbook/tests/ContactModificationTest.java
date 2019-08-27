@@ -44,10 +44,10 @@ public class ContactModificationTest extends TestBase {
         //TODO: The end of workaround
 
 // outcoming part
+        assertThat(app.contact().count(), equalTo(beforeTestContactsList.size()));
         Accounts afterTestContactsList = app.contact().all();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
-        assertEquals(afterTestContactsList.size(), beforeTestContactsList.size());
         assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToEdit).withAdded(editedContact
                 .withContactID(afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt()))));
     }

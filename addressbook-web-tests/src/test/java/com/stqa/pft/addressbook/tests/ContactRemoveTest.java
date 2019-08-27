@@ -30,10 +30,10 @@ public class ContactRemoveTest extends TestBase {
         app.contact().remove(contactToDelete);
 
 // outcoming part
+        assertThat(app.contact().count(), equalTo(beforeTestContactsList.size() - 1));
         Accounts afterTestContactsList = app.contact().all();
         System.out.println("Contacts before test: " + beforeTestContactsList.size());
         System.out.println("Contacts after test: " + afterTestContactsList.size());
-        assertThat(afterTestContactsList.size(), equalTo(beforeTestContactsList.size() - 1));
         assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToDelete)));
 
     }

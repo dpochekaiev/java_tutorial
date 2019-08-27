@@ -36,10 +36,10 @@ public class GroupRemoveTest extends TestBase {
         app.group().delete(groupForDeletion);
 
 // outcoming part
+        assertThat(app.group().count(), equalTo(beforeTestGroupsList.size() - 1));
         Groups afterTestGroupsList = app.group().all();
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
-        assertThat(afterTestGroupsList.size(), equalTo(beforeTestGroupsList.size() - 1));
         assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList.without(groupForDeletion)));
     }
 

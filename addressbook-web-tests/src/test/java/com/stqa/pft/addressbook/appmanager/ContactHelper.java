@@ -114,7 +114,7 @@ public class ContactHelper extends HelperBase {
         returnToMainPage();
     }
 
-    public int getContactCount() {
+    public int count() {
         //return driver.findElements(By.name("selected[]")).size();
         return driver.findElements(By.xpath(editContactLinkSelector)).size();
     }
