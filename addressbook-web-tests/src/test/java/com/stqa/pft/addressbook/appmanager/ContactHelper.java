@@ -34,10 +34,11 @@ public class ContactHelper extends HelperBase {
 //        if (isElementPresent(By.name("new_group"))) {
 //            selectDropdownValue(By.name("new_group"), accountMap.getGroup());
 //        }
-        if (creation) {
-            selectDropdownValue(By.name("new_group"), accountMap.getGroup());
-        } else {
+        if (!creation) {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
+//            selectDropdownValue(By.name("new_group"), accountMap.getGroup());
+//        } else {
+//            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
     }
 
@@ -109,6 +110,7 @@ public class ContactHelper extends HelperBase {
         initContactCreation();
         fillContactForm(contact, creation);
         submitContactCreation();
+        contactCache = null;
         returnToMainPage();
     }
 
@@ -144,11 +146,16 @@ public class ContactHelper extends HelperBase {
         return accounts;
     }
 
+    private Accounts contactCache = null;
+
     /**
      * Returns a set of contacts
      */
     public Accounts all() {
-        Accounts accounts = new Accounts();
+        if (contactCache != null) {
+            return new Accounts(contactCache);
+        }
+        contactCache = new Accounts();
         List<WebElement> elements = driver.findElements(By.xpath(editContactLinkSelector));
         List<WebElement> surnames = driver.findElements(By.xpath("//tr[@name='entry']/td[2]"));
         List<WebElement> names = driver.findElements(By.xpath("//tr[@name='entry']/td[3]"));
@@ -165,10 +172,10 @@ public class ContactHelper extends HelperBase {
             i++;
             String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
             int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath)).getAttribute("value"));
-            accounts.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
+            contactCache.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
                     .withAddress(address).withHomePhoneNumber(phone).withEmailFirst(email));
         }
-        return accounts;
+        return new Accounts(contactCache);
     }
 
     public List<AccountMap> sortAscending (List<AccountMap> contactList) {
@@ -204,6 +211,7 @@ public class ContactHelper extends HelperBase {
         editContactByID(editedContact.getContactID());
         fillContactForm(editedContact, false);
         submitContactUpdate();
+        contactCache = null;
         returnToMainPage();
     }
 
@@ -214,6 +222,7 @@ public class ContactHelper extends HelperBase {
     public void remove(int contactToRemoveIndex) {
        selectContactByIndex(contactToRemoveIndex);
         deleteSelectedContact();
+        contactCache = null;
         returnToHomePage();
 
     }
@@ -221,6 +230,7 @@ public class ContactHelper extends HelperBase {
     public void remove(AccountMap contactToDelete) {
         selectContactByID(contactToDelete.getContactID());
         deleteSelectedContact();
+        contactCache = null;
         returnToHomePage();
     }
 }
