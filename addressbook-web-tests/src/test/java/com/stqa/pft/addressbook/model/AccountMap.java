@@ -11,6 +11,8 @@ public class AccountMap {
     private  String company;
     private  String address;
     private  String homePhoneNumber;
+    private  String mobilePhoneNumber;
+    private  String workPhoneNumber;
     private  String emailFirst;
     private  String dayOfBirth;
     private  String monthOfBirth;
@@ -43,6 +45,16 @@ public class AccountMap {
 
     public AccountMap withAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public AccountMap withMobilePhoneNumber(String mobilePhoneNumber) {
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        return this;
+    }
+
+    public AccountMap withWorkPhoneNumber(String workPhoneNumber) {
+        this.workPhoneNumber = workPhoneNumber;
         return this;
     }
 
@@ -110,6 +122,14 @@ public class AccountMap {
         return homePhoneNumber;
     }
 
+    public String getMobilePhoneNumber() {
+        return mobilePhoneNumber;
+    }
+
+    public String getWorkPhoneNumber() {
+        return workPhoneNumber;
+    }
+
     public String getEmailFirst() {
         return emailFirst;
     }
@@ -117,7 +137,6 @@ public class AccountMap {
     public String getDayOfBirth() {
         return dayOfBirth;
     }
-
 
     public String getMonthOfBirth() {
         return monthOfBirth;
@@ -141,12 +160,14 @@ public class AccountMap {
                 Objects.equals(surname, that.surname) &&
                 Objects.equals(address, that.address) &&
                 Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
+                Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
+                Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
                 Objects.equals(emailFirst, that.emailFirst);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contactID, first, surname, address, homePhoneNumber, emailFirst);
+        return Objects.hash(contactID, first, surname, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, emailFirst);
     }
 
     @Override
@@ -156,8 +177,10 @@ public class AccountMap {
                 "surname='" + surname + '\'' +
                 ", first='" + first + '\'' +
                 ", address='" + address + '\'' +
-                ", emailFirst='" + emailFirst + '\'' +
                 ", homePhoneNumber='" + homePhoneNumber + '\'' +
+                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
+                ", workPhoneNumber='" + workPhoneNumber + '\'' +
+                ", emailFirst='" + emailFirst + '\'' +
                 '}';
     }
 

@@ -16,7 +16,8 @@ public class ContactCreationTest extends TestBase {
         System.out.println("Running testContactCreation");
         AccountMap newContact = new AccountMap().withFirstName("Neko Name").withMiddleName("S")
                 .withSurname("Family Name").withCompany("Some Company").withAddress("Some address")
-                .withHomePhoneNumber("123456789").withEmailFirst("email.mail.com").withDayOfBirth("13")
+                .withHomePhoneNumber("123456789").withMobilePhoneNumber("380666442211")
+                .withWorkPhoneNumber("05726680254").withEmailFirst("email@mail.com").withDayOfBirth("13")
                 .withMonthOfBirth("January").withYearOfBirth("1988").withGroup("test1");
 // test part
         app.goTo().homePage();

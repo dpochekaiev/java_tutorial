@@ -29,8 +29,8 @@ public class ContactModificationTest extends TestBase {
         AccountMap contactToEdit = beforeTestContactsList.iterator().next();
         AccountMap editedContact = new AccountMap().withContactID(contactToEdit.getContactID()).withFirstName("EditedName")
                 .withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
-                .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withEmailFirst("EdItEd@MaIl.DoT.cOm")
-                .withMonthOfBirth("April").withYearOfBirth("2000");
+                .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withMobilePhoneNumber("222")
+                .withWorkPhoneNumber("333").withEmailFirst("EdItEd@MaIl.DoT.cOm").withMonthOfBirth("April").withYearOfBirth("2000");
 
 
 // test part
