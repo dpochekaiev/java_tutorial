@@ -293,7 +293,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.ContactPhoneTest">
+  <component name="RunManager" selected="TestNG.ContactCreationTest">
     <configuration name="ContactCreationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -380,11 +380,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ContactCreationTest" />
+        <item itemvalue="TestNG.com.stqa.pft.addressbook.tests" />
         <item itemvalue="TestNG.ContactPhoneTest" />
         <item itemvalue="TestNG.ContactModificationTest" />
         <item itemvalue="TestNG.ContactRemoveTest" />
-        <item itemvalue="TestNG.ContactCreationTest" />
-        <item itemvalue="TestNG.com.stqa.pft.addressbook.tests" />
       </list>
     </recent_temporary>
   </component>
