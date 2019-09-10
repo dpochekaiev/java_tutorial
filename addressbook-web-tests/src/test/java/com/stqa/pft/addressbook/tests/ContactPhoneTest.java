@@ -42,6 +42,12 @@ public class ContactPhoneTest extends TestBase {
         System.out.println(contactForTest.getMobilePhoneNumber() + "   " + contactInfoFromEditForm.getMobilePhoneNumber());
         System.out.print("WorkPhoneNumber:      ");
         System.out.println(contactForTest.getWorkPhoneNumber() + "   " + contactInfoFromEditForm.getWorkPhoneNumber());
+        System.out.println();
+        System.out.println("The column of Phones from main window:");
+        System.out.println(contactForTest.getPhones());
+        System.out.println();
+        System.out.println("The column of Phones from edit form:");
+        System.out.println(contactInfoFromEditForm.getPhones());
     }
 
     private String mergePhones(AccountMap contact) {

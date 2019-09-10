@@ -170,15 +170,15 @@ public class AccountMap {
                 Objects.equals(first, that.first) &&
                 Objects.equals(surname, that.surname) &&
                 Objects.equals(address, that.address) &&
-                Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
-                Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
-                Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
+//                Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
+//                Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
+//                Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
                 Objects.equals(emailFirst, that.emailFirst);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contactID, first, surname, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, emailFirst);
+        return Objects.hash(contactID, first, surname, address, /*homePhoneNumber, mobilePhoneNumber, workPhoneNumber, */emailFirst);
     }
 
     @Override
@@ -188,9 +188,9 @@ public class AccountMap {
                 "surname='" + surname + '\'' +
                 ", first='" + first + '\'' +
                 ", address='" + address + '\'' +
-                ", homePhoneNumber='" + homePhoneNumber + '\'' +
-                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
-                ", workPhoneNumber='" + workPhoneNumber + '\'' +
+//                ", homePhoneNumber='" + homePhoneNumber + '\'' +
+//                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
+//                ", workPhoneNumber='" + workPhoneNumber + '\'' +
                 ", emailFirst='" + emailFirst + '\'' +
                 '}';
     }
