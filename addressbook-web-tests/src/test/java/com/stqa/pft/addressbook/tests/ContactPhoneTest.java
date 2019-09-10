@@ -4,6 +4,9 @@ import com.stqa.pft.addressbook.model.AccountMap;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
@@ -31,9 +34,7 @@ public class ContactPhoneTest extends TestBase {
         AccountMap contactInfoFromEditForm = app.contact().infoFromEditForm(contactForTest);
 
 // outcoming part
-        assertThat(contactForTest.getHomePhoneNumber(), equalTo(cleanedPhones(contactInfoFromEditForm.getHomePhoneNumber())));
-        assertThat(contactForTest.getWorkPhoneNumber(), equalTo(cleanedPhones(contactInfoFromEditForm.getWorkPhoneNumber())));
-        assertThat(contactForTest.getMobilePhoneNumber(), equalTo(cleanedPhones(contactInfoFromEditForm.getMobilePhoneNumber())));
+        assertThat(contactForTest.getPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
         System.out.println("Phones from main window;     Phones from edit form");
         System.out.print("HomePhoneNumber:      ");
         System.out.println(contactForTest.getHomePhoneNumber() + "   " + contactInfoFromEditForm.getHomePhoneNumber());
@@ -43,7 +44,14 @@ public class ContactPhoneTest extends TestBase {
         System.out.println(contactForTest.getWorkPhoneNumber() + "   " + contactInfoFromEditForm.getWorkPhoneNumber());
     }
 
-    public String cleanedPhones (String phoneNumber) {
+    private String mergePhones(AccountMap contact) {
+        return Arrays.asList(contact.getHomePhoneNumber(), contact.getMobilePhoneNumber(), contact.getWorkPhoneNumber())
+                .stream().filter((s) -> ! s.equals(""))
+                .map(ContactPhoneTest::cleanedPhones)
+                .collect(Collectors.joining("\n"));
+    }
+
+    public static String cleanedPhones (String phoneNumber) {
         return phoneNumber.replaceAll("[-()]", "").replaceAll("\\s", "");
     }
 

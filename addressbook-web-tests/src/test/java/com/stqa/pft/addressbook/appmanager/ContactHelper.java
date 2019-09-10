@@ -173,17 +173,13 @@ public class ContactHelper extends HelperBase {
             String name = names.get(i).getText();
             String address = addresses.get(i).getText();
             String email = emails.get(i).getText();
-            String[] phones = allPhones.get(i).getText().split("\n");
-            String homePhone = phones[0];
-            String workPhone = phones[2];
-            String mobilePhone = phones[1];
+            String phones = allPhones.get(i).getText();
             i++;
             String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
             int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath))
                     .getAttribute("value"));
             contactCache.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
-                    .withAddress(address).withHomePhoneNumber(homePhone).withWorkPhoneNumber(workPhone)
-                    .withMobilePhoneNumber(mobilePhone).withEmailFirst(email));
+                    .withAddress(address).withPhones(phones).withEmailFirst(email));
         }
         return new Accounts(contactCache);
     }

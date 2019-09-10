@@ -10,6 +10,17 @@ public class AccountMap {
     private  String surname;
     private  String company;
     private  String address;
+
+    public AccountMap withPhones(String phones) {
+        this.phones = phones;
+        return this;
+    }
+
+    public String getPhones() {
+        return phones;
+    }
+
+    private  String phones;
     private  String homePhoneNumber;
     private  String mobilePhoneNumber;
     private  String workPhoneNumber;
