@@ -27,6 +27,8 @@ public class ContactHelper extends HelperBase {
         type(By.name("work"), accountMap.getWorkPhoneNumber());
         type(By.name("mobile"), accountMap.getMobilePhoneNumber());
         type(By.name("email"), accountMap.getEmailFirst());
+        type(By.name("email2"), accountMap.getEmailSecond());
+        type(By.name("email3"), accountMap.getEmailThird());
         selectDropdownValue(By.name("bday"), accountMap.getDayOfBirth());  //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
         selectDropdownValue(By.name("bmonth"), accountMap.getMonthOfBirth());  //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
         type(By.name("byear"), accountMap.getYearOfBirth());
@@ -146,7 +148,8 @@ public class ContactHelper extends HelperBase {
             String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
             int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath)).getAttribute("value"));
             accounts.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
-                    .withAddress(address).withHomePhoneNumber(phone).withEmailFirst(email));
+                    .withAddress(address));
+//                    .withHomePhoneNumber(phone).withEmailFirst(email));
         }
         return accounts;
     }
@@ -166,20 +169,20 @@ public class ContactHelper extends HelperBase {
         List<WebElement> names = driver.findElements(By.xpath("//tr[@name='entry']/td[3]"));
         List<WebElement> addresses = driver.findElements(By.xpath("//tr[@name='entry']/td[4]"));
         List<WebElement> emails = driver.findElements(By.xpath("//tr[@name='entry']/td[5]"));
-        List<WebElement> allPhones = driver.findElements(By.xpath("//tr[@name='entry']/td[6]"));
+        List<WebElement> phones = driver.findElements(By.xpath("//tr[@name='entry']/td[6]"));
         int i = 0;
         for (WebElement element : elements) {
             String surname = surnames.get(i).getText();
             String name = names.get(i).getText();
             String address = addresses.get(i).getText();
-            String email = emails.get(i).getText();
-            String phones = allPhones.get(i).getText();
+            String allEmails = emails.get(i).getText();
+            String allPhones = phones.get(i).getText();
             i++;
             String checkBoxForContactByIndexXPath = "(//td[@class='center']/input)[" + i + "]";
             int contactID = Integer.parseInt(element.findElement(By.xpath(checkBoxForContactByIndexXPath))
                     .getAttribute("value"));
             contactCache.add(new AccountMap().withContactID(contactID).withFirstName(name).withSurname(surname)
-                    .withAddress(address).withPhones(phones).withEmailFirst(email));
+                    .withAddress(address).withPhones(allPhones).withEmails(allEmails));
         }
         return new Accounts(contactCache);
     }
@@ -251,14 +254,18 @@ public class ContactHelper extends HelperBase {
         String homePhone = driver.findElement(By.xpath("//input[@name='home']")).getAttribute("value");
         String mobilePhone = driver.findElement(By.xpath("//input[@name='mobile']")).getAttribute("value");
         String workPhone = driver.findElement(By.xpath("//input[@name='work']")).getAttribute("value");
+        String emailFirst = driver.findElement(By.xpath("//input[@name='email']")).getAttribute("value");
+        String emailSecond = driver.findElement(By.xpath("//input[@name='email2']")).getAttribute("value");
+        String emailThird = driver.findElement(By.xpath("//input[@name='email3']")).getAttribute("value");
         String dayOfBirthday = driver.findElement(By.xpath("//select[@name='bday']/option[@selected='selected']")).getText().replaceAll("-", "");
         String monthOfBirthday = driver.findElement(By.xpath("//select[@name='bmonth']/option[@selected='selected']")).getText().replaceAll("-", "");
         String yearOfBithday = driver.findElement(By.xpath("//input[@name='byear']")).getAttribute("value");
         driver.navigate().back();
         return new AccountMap().withFirstName(firstName).withMiddleName(middleName).withSurname(surname)
                 .withCompany(company).withAddress(address).withHomePhoneNumber(homePhone)
-                .withMobilePhoneNumber(mobilePhone).withWorkPhoneNumber(workPhone).withDayOfBirth(dayOfBirthday)
-                .withMonthOfBirth(monthOfBirthday).withYearOfBirth(yearOfBithday);
+                .withMobilePhoneNumber(mobilePhone).withWorkPhoneNumber(workPhone)
+                .withEmailFirst(emailFirst).withEmailSecond(emailSecond).withEmailThird(emailThird)
+                .withDayOfBirth(dayOfBirthday).withMonthOfBirth(monthOfBirthday).withYearOfBirth(yearOfBithday);
 
     }
 }

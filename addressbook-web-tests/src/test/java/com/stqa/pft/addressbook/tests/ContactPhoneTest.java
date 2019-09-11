@@ -35,6 +35,7 @@ public class ContactPhoneTest extends TestBase {
 
 // outcoming part
         assertThat(contactForTest.getPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
+
         System.out.println("Phones from main window;     Phones from edit form");
         System.out.print("HomePhoneNumber:      ");
         System.out.println(contactForTest.getHomePhoneNumber() + "   " + contactInfoFromEditForm.getHomePhoneNumber());

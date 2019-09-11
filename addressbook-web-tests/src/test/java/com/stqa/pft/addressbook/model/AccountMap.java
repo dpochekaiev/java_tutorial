@@ -10,6 +10,31 @@ public class AccountMap {
     private  String surname;
     private  String company;
     private  String address;
+    private  String phones;
+    private  String homePhoneNumber;
+    private  String mobilePhoneNumber;
+    private  String workPhoneNumber;
+    private  String emails;
+    private  String emailFirst;
+    private  String emailSecond;
+    private  String emailThird;
+    private  String dayOfBirth;
+    private  String monthOfBirth;
+    private  String yearOfBirth;
+
+    public AccountMap withEmails(String emails) {
+        this.emails = emails;
+        return this;
+    }
+    public AccountMap withEmailSecond(String emailSecond) {
+        this.emailSecond = emailSecond;
+        return this;
+    }
+
+    public AccountMap withEmailThird(String emailThird) {
+        this.emailThird = emailThird;
+        return this;
+    }
 
     public AccountMap withPhones(String phones) {
         this.phones = phones;
@@ -19,15 +44,6 @@ public class AccountMap {
     public String getPhones() {
         return phones;
     }
-
-    private  String phones;
-    private  String homePhoneNumber;
-    private  String mobilePhoneNumber;
-    private  String workPhoneNumber;
-    private  String emailFirst;
-    private  String dayOfBirth;
-    private  String monthOfBirth;
-    private  String yearOfBirth;
 
     public AccountMap withContactID(int contactID) {
         this.contactID = contactID;
@@ -141,8 +157,20 @@ public class AccountMap {
         return workPhoneNumber;
     }
 
+    public String getEmails() {
+        return emails;
+    }
+
     public String getEmailFirst() {
         return emailFirst;
+    }
+
+    public String getEmailSecond() {
+        return emailSecond;
+    }
+
+    public String getEmailThird() {
+        return emailThird;
     }
 
     public String getDayOfBirth() {
@@ -168,17 +196,17 @@ public class AccountMap {
         AccountMap that = (AccountMap) o;
         return Objects.equals(contactID, that.contactID) &&
                 Objects.equals(first, that.first) &&
-                Objects.equals(surname, that.surname) &&
-                Objects.equals(address, that.address) &&
+                Objects.equals(surname, that.surname) ;
+//                Objects.equals(address, that.address) &&
 //                Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
 //                Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
 //                Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
-                Objects.equals(emailFirst, that.emailFirst);
+//                Objects.equals(emailFirst, that.emailFirst);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contactID, first, surname, address, /*homePhoneNumber, mobilePhoneNumber, workPhoneNumber, */emailFirst);
+        return Objects.hash(contactID, first, surname /*, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, emailFirst*/);
     }
 
     @Override
@@ -187,11 +215,11 @@ public class AccountMap {
                 "contactID='" + contactID + '\'' +
                 "surname='" + surname + '\'' +
                 ", first='" + first + '\'' +
-                ", address='" + address + '\'' +
+//                ", address='" + address + '\'' +
 //                ", homePhoneNumber='" + homePhoneNumber + '\'' +
 //                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
 //                ", workPhoneNumber='" + workPhoneNumber + '\'' +
-                ", emailFirst='" + emailFirst + '\'' +
+//                ", emailFirst='" + emailFirst + '\'' +
                 '}';
     }
 
