@@ -18,6 +18,7 @@ public class ContactAddressTest extends TestBase {
             app.contact().create(dummyContact, true);
         }
     }
+
     @Test
     public void testContactAddress() {
 // preparation part

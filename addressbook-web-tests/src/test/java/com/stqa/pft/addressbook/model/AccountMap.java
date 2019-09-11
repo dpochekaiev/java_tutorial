@@ -21,6 +21,7 @@ public class AccountMap {
     private  String dayOfBirth;
     private  String monthOfBirth;
     private  String yearOfBirth;
+    private  String group;
 
     public AccountMap withEmails(String emails) {
         this.emails = emails;
@@ -115,7 +116,7 @@ public class AccountMap {
         return this;
     }
 
-    private  String group;
+
 
     public int getContactID() {
         return contactID;

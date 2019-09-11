@@ -2,12 +2,21 @@ package com.stqa.pft.addressbook.tests;
 
         import com.stqa.pft.addressbook.model.AccountMap;
         import com.stqa.pft.addressbook.model.Accounts;
+        import com.stqa.pft.addressbook.model.GroupMap;
         import org.testng.annotations.*;
 
         import static org.hamcrest.CoreMatchers.equalTo;
         import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTest extends TestBase {
+
+    @BeforeMethod
+    public void ensurePreConditions() {
+        app.goTo().groupPage();
+        if (app.group().all().size() == 0) {
+            app.group().create(new GroupMap().withGroupName("test1").withGroupHeader("Some Dummy Group"));
+        }
+    }
 
     @Test
     public void testContactCreation() throws Exception {

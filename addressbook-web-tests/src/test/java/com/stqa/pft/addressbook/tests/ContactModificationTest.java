@@ -2,6 +2,7 @@ package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.model.AccountMap;
 import com.stqa.pft.addressbook.model.Accounts;
+import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,10 @@ public class ContactModificationTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreConditions() {
+        app.goTo().groupPage();
+        if (app.group().all().size() == 0) {
+            app.group().create(new GroupMap().withGroupName("test1").withGroupHeader("Some Dummy Group"));
+        }
         AccountMap dummyContact = new AccountMap().withFirstName("Just").withMiddleName("A").withSurname("Dummy Contact");
         app.goTo().homePage();
         if (app.contact().list().size() == 0) {
@@ -30,7 +35,8 @@ public class ContactModificationTest extends TestBase {
         AccountMap editedContact = new AccountMap().withContactID(contactToEdit.getContactID()).withFirstName("EditedName")
                 .withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
                 .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withMobilePhoneNumber("222")
-                .withWorkPhoneNumber("333").withEmailFirst("EdItEd@MaIl.DoT.cOm").withMonthOfBirth("April").withYearOfBirth("2000");
+                .withWorkPhoneNumber("333").withEmailFirst("EdItEd@MaIl.DoT.cOm").withMonthOfBirth("April")
+                .withYearOfBirth("2000").withGroup("test1");
 
 
 // test part
