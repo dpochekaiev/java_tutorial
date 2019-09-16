@@ -19,7 +19,9 @@ public class ContactViewTest extends TestBase  {
 
     @Test (enabled = false)
     public void testContactView() {
+        AccountMap contactForTest = app.contact().list().;
 
+        System.out.println(contactForTest);
     }
 
 
