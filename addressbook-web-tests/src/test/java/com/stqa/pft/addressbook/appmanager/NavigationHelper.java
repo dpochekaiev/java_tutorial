@@ -9,7 +9,10 @@ public class NavigationHelper extends HelperBase{
         super(driver);
     }
 
-    public void gotoGroupPage() {
+    /**
+     * Method navigates to the group page
+     */
+    public void groupPage() {
         if (isElementPresent(By.xpath("//div[h1='Groups']"))
                 && isElementPresent(By.xpath("//input[@name='new' and @value='New group']"))) {
             return;
@@ -18,7 +21,10 @@ public class NavigationHelper extends HelperBase{
     }
 
 
-    public void gotoHomePage() {
+    /**
+     * Mehod navigates to the home page
+     */
+    public void homePage() {
         if (isElementPresent(By.id("maintable"))) {
             return;
         }
