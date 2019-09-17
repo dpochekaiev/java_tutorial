@@ -71,6 +71,10 @@ public class ContactHelper extends HelperBase {
         driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s'", editContactID))).click();
     }
 
+    public void initViewContactDetailsByID(int editContactID) {
+        driver.findElement(By.cssSelector(String.format("a[href='view.php?id=%s'", editContactID))).click();
+    }
+
     public void submitContactUpdate() {
         click(By.name("update"));
     }
@@ -267,5 +271,16 @@ public class ContactHelper extends HelperBase {
                 .withEmailFirst(emailFirst).withEmailSecond(emailSecond).withEmailThird(emailThird)
                 .withDayOfBirth(dayOfBirthday).withMonthOfBirth(monthOfBirthday).withYearOfBirth(yearOfBithday);
 
+    }
+
+    public AccountMap infoFromDetailsForm(AccountMap contact) {
+        initViewContactDetailsByID(contact.getContactID());
+        String allDetails = driver.findElement(By.xpath("//div[@id='content']")).getText();
+        return new AccountMap().withDetials(allDetails);
+    }
+
+    public AccountMap getLastCreatedAccount() {
+        List<AccountMap> sortedAccountsList = list();
+        return sortAscending(sortedAccountsList).get(list().size() - 1);
     }
 }

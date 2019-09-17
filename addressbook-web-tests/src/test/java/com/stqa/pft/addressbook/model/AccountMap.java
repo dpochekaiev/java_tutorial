@@ -5,6 +5,7 @@ import java.util.Objects;
 public class AccountMap {
 
     private int contactID = 0;
+    private String details;
     private  String first;
     private  String middleName;
     private  String surname;
@@ -23,10 +24,15 @@ public class AccountMap {
     private  String yearOfBirth;
     private  String group;
 
+    public AccountMap withDetials(String details) {
+        this.details = details;
+        return this;
+    }
     public AccountMap withEmails(String emails) {
         this.emails = emails;
         return this;
     }
+
     public AccountMap withEmailSecond(String emailSecond) {
         this.emailSecond = emailSecond;
         return this;
@@ -40,10 +46,6 @@ public class AccountMap {
     public AccountMap withPhones(String phones) {
         this.phones = phones;
         return this;
-    }
-
-    public String getPhones() {
-        return phones;
     }
 
     public AccountMap withContactID(int contactID) {
@@ -117,9 +119,16 @@ public class AccountMap {
     }
 
 
-
     public int getContactID() {
         return contactID;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public String getPhones() {
+        return phones;
     }
 
     public void setContactID(int contactID) {
