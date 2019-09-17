@@ -35,20 +35,7 @@ public class ContactPhoneTest extends TestBase {
 
 // outcoming part
         assertThat(contactForTest.getPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
-
-        System.out.println("Phones from main window;     Phones from edit form");
-        System.out.print("HomePhoneNumber:      ");
-        System.out.println(contactForTest.getHomePhoneNumber() + "   " + contactInfoFromEditForm.getHomePhoneNumber());
-        System.out.print("MobilePhoneNumber:    ");
-        System.out.println(contactForTest.getMobilePhoneNumber() + "   " + contactInfoFromEditForm.getMobilePhoneNumber());
-        System.out.print("WorkPhoneNumber:      ");
-        System.out.println(contactForTest.getWorkPhoneNumber() + "   " + contactInfoFromEditForm.getWorkPhoneNumber());
-        System.out.println();
-        System.out.println("The column of Phones from main window:");
-        System.out.println(contactForTest.getPhones());
-        System.out.println();
-        System.out.println("The column of Phones from edit form:");
-        System.out.println(contactInfoFromEditForm.getPhones());
+        System.out.println("Test passed");
     }
 
     private String mergePhones(AccountMap contact) {

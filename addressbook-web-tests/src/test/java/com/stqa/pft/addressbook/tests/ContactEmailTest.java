@@ -35,20 +35,7 @@ public class ContactEmailTest extends TestBase {
 
 // outcoming part
         assertThat(contactForTest.getEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
-
-        System.out.println("Emails from main window;     Emails from edit form");
-        System.out.print("mailFirst:      ");
-        System.out.println(contactForTest.getEmailFirst() + "   " + contactInfoFromEditForm.getEmailFirst());
-        System.out.print("EmailSecond:    ");
-        System.out.println(contactForTest.getEmailSecond() + "   " + contactInfoFromEditForm.getEmailSecond());
-        System.out.print("EmailThird:      ");
-        System.out.println(contactForTest.getEmailThird() + "   " + contactInfoFromEditForm.getEmailThird());
-        System.out.println();
-        System.out.println("The column of Emails from main window:");
-        System.out.println(contactForTest.getEmails());
-        System.out.println();
-        System.out.println("The column of Emails from edit form:");
-        System.out.println(contactInfoFromEditForm.getEmails());
+        System.out.println("Test passed");
     }
 
 

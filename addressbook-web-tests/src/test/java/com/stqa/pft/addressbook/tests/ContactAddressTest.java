@@ -32,12 +32,7 @@ public class ContactAddressTest extends TestBase {
 
 // outcoming part
         assertThat(cleanedAddress(contactForTest.getAddress()), equalTo(cleanedAddress(contactInfoFromEditForm.getAddress())));
-
-        System.out.println("The column of Address from main window:");
-        System.out.println(contactForTest.getAddress());
-        System.out.println();
-        System.out.println("The column of Address from edit form:");
-        System.out.println(contactInfoFromEditForm.getAddress());
+        System.out.println("Test passed");
     }
 
     public static String cleanedAddress (String phoneNumber) {

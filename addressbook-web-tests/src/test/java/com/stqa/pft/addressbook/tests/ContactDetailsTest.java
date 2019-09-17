@@ -56,15 +56,8 @@ public class ContactDetailsTest extends TestBase  {
 // outcoming part
         assertThat(cleanedContactDetails(contactInfoFromEditForm.getDetails()),
                 equalTo(cleanedContactDetails(contactInfoFromDetailsForm.getDetails())));
-
-        System.out.println("Details from main window:");
-        System.out.println(contactInfoFromEditForm.getDetails());
-        System.out.println();
-        System.out.println("Details from edit form:");
-        System.out.println(contactInfoFromDetailsForm.getDetails());
-
-
         System.out.println(contactForTest);
+        System.out.println("Test passed");
     }
 
 
