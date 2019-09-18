@@ -5,6 +5,8 @@ package com.stqa.pft.addressbook.tests;
         import com.stqa.pft.addressbook.model.GroupMap;
         import org.testng.annotations.*;
 
+        import java.io.File;
+
         import static org.hamcrest.CoreMatchers.equalTo;
         import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -18,17 +20,20 @@ public class ContactCreationTest extends TestBase {
         }
     }
 
-    @Test
+
+    @Test //(enabled = false)
     public void testContactCreation() throws Exception {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactCreation");
+        File photo = new File("src/test/resources/warrior_logo.png");
         AccountMap newContact = new AccountMap().withFirstName("Neko Name").withMiddleName("S")
                 .withSurname("Family Name").withCompany("Some Company").withAddress(" \n   Some address \n \n with several rows")
                 .withHomePhoneNumber("123456789").withMobilePhoneNumber("380666442211")
                 .withWorkPhoneNumber("05726680254").withEmailFirst("email@mail.com")
                 .withEmailSecond("Second_email@some.domain").withEmailThird("Email_No_3@mail.ru")
-                .withDayOfBirth("13").withMonthOfBirth("January").withYearOfBirth("1988").withGroup("test1");
+                .withDayOfBirth("13").withMonthOfBirth("January").withYearOfBirth("1988").withGroup("test1")
+                .withPhoto(photo);
 // test part
         app.goTo().homePage();
         Accounts beforeTestContactsList = app.contact().all();
@@ -41,6 +46,13 @@ public class ContactCreationTest extends TestBase {
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         assertThat(afterTestContactsList, equalTo(beforeTestContactsList.withAdded(newContact.
                 withContactID(afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt()))));
+    }
+
+    @Test (enabled = false)
+    public void testCurrentDirectory() {
+        File photo = new File("src/test/resources/warrior_logo.png");
+        System.out.println(photo.getAbsolutePath());
+        System.out.println(photo.exists());
     }
 
 }

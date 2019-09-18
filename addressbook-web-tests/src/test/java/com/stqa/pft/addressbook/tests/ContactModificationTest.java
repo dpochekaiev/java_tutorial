@@ -6,6 +6,8 @@ import com.stqa.pft.addressbook.model.GroupMap;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
@@ -36,7 +38,8 @@ public class ContactModificationTest extends TestBase {
                 .withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
                 .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withMobilePhoneNumber("222")
                 .withWorkPhoneNumber("333").withEmailFirst("EdItEd@MaIl.DoT.cOm").withMonthOfBirth("April")
-                .withYearOfBirth("2000").withGroup("test1");
+                .withYearOfBirth("2000").withGroup("test1")
+                .withPhoto(new File("src/test/resources/enchantress_logo.png"));
 
 
 // test part

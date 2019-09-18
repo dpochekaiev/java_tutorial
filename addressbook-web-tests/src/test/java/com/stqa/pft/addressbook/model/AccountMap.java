@@ -1,5 +1,6 @@
 package com.stqa.pft.addressbook.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class AccountMap {
@@ -23,11 +24,19 @@ public class AccountMap {
     private  String monthOfBirth;
     private  String yearOfBirth;
     private  String group;
+    private File photo;
+
+
+    public AccountMap withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
 
     public AccountMap withDetials(String details) {
         this.details = details;
         return this;
     }
+
     public AccountMap withEmails(String emails) {
         this.emails = emails;
         return this;
@@ -197,6 +206,10 @@ public class AccountMap {
 
     public String getGroup() {
         return group;
+    }
+
+    public File getPhoto() {
+        return photo;
     }
 
     @Override

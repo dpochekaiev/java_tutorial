@@ -32,6 +32,7 @@ public class ContactHelper extends HelperBase {
         selectDropdownValue(By.name("bday"), accountMap.getDayOfBirth());  //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
         selectDropdownValue(By.name("bmonth"), accountMap.getMonthOfBirth());  //        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
         type(By.name("byear"), accountMap.getYearOfBirth());
+        attach(By.xpath("//input[@name='photo']"), accountMap.getPhoto());
         if (isElementPresent(By.name("new_group"))) {
             selectDropdownValue(By.name("new_group"), accountMap.getGroup());
         }
