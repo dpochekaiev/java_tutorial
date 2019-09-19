@@ -1,5 +1,8 @@
 package com.stqa.pft.addressbook.generators;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
 import com.stqa.pft.addressbook.model.GroupMap;
 
 import java.io.File;
@@ -11,18 +14,31 @@ import java.util.List;
 
 public class GroupDataGenerator {
 
-    public static void main(String[] args) throws IOException {
-        int amountOfGroups = Integer.parseInt(args[0]);
-        File groupsFile = new File(args[1]);
+    @Parameter(names = "-c", description = "Groups count")
+    public int groupsDataCount = 6;
 
-        List<GroupMap> groups = generateGroups(amountOfGroups);
-        save(groups, groupsFile);
+    @Parameter(names = "-f", description = "Groups data target filename")
+    public String groupsDataFileName = "src/test/resources/default_groups_test.csv";
+
+
+    public static void main(String[] args) throws IOException {
+        GroupDataGenerator generator = new GroupDataGenerator();
+        JCommander jCommender = new JCommander(generator);
+        try {
+            jCommender.parse(args);
+        } catch (ParameterException ex) {
+            jCommender.usage();
+            return;
+        }
+        generator.run();
     }
 
-    private static void save(List<GroupMap> groups, File groupsFile) throws IOException {
+    private void run() throws IOException {
+        List<GroupMap> groups = generateGroups(groupsDataCount);
+        save(groups, new File(groupsDataFileName));
+    }
 
-        System.out.println(new File(".").getAbsolutePath());
-
+    private void save(List<GroupMap> groups, File groupsFile) throws IOException {
         Writer writer = new FileWriter(groupsFile);
         for (GroupMap group : groups) {
             writer.write(String.format("%s;%s;%s\n", group.getGroupName(), group.getGroupHeader(), group.getGroupFooter()));
@@ -30,7 +46,7 @@ public class GroupDataGenerator {
         writer.close();
     }
 
-    private static List<GroupMap> generateGroups(int amountOfGroups) {
+    private List<GroupMap> generateGroups(int amountOfGroups) {
         List<GroupMap> groups = new ArrayList<GroupMap>();
         for (int i = 0; i < amountOfGroups; i++) {
             groups.add(new GroupMap().withGroupName(String.format("test %s", i))
