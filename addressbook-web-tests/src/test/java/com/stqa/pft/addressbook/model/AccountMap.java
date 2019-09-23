@@ -1,10 +1,13 @@
 package com.stqa.pft.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.io.File;
 import java.util.Objects;
-
+@XStreamAlias("account")
 public class AccountMap {
-
+    @XStreamOmitField
     private int contactID = 0;
     private String details;
     private  String first;

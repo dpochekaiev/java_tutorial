@@ -1,9 +1,13 @@
 package com.stqa.pft.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.util.Objects;
 
+@XStreamAlias("group")
 public class GroupMap {
-
+    @XStreamOmitField
     private int groupId = Integer.MAX_VALUE;
     private  String groupName;
     private  String groupHeader;
