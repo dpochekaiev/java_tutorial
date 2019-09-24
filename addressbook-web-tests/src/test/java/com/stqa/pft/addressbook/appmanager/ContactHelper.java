@@ -122,8 +122,8 @@ public class ContactHelper extends HelperBase {
         initContactCreation();
         fillContactForm(contact, creation);
         submitContactCreation();
-        contactCache = null;
         returnToMainPage();
+        contactCache = null;
     }
 
     public int count() {

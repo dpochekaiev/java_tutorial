@@ -3,6 +3,8 @@ package com.stqa.pft.addressbook.generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.stqa.pft.addressbook.model.GroupMap;
 import com.thoughtworks.xstream.XStream;
 
@@ -50,7 +52,12 @@ public class GroupDataGenerator {
         }
     }
 
-    private void saveAsJson(List<GroupMap> groups, File file) {
+    private void saveAsJson(List<GroupMap> groups, File file) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(groups);
+        Writer writer = new FileWriter(file);
+        writer.write(json);
+        writer.close();
     }
 
     private void saveAsXml(List<GroupMap> groups, File file) throws IOException {

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -75,6 +76,18 @@ public class GroupHelper extends HelperBase{
     }
 
     private Groups groupCache = null;
+
+    public List<GroupMap> list() {
+        List<GroupMap> groups = new ArrayList<GroupMap>();
+        List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements) {
+            int groupId = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            String groupName = element.getText();
+            GroupMap group = new GroupMap().withGroupId(groupId).withGroupName(groupName);
+            groups.add(group);
+        }
+        return groups;
+    }
 
     /**
      * @return a set of groups

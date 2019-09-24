@@ -23,7 +23,16 @@ public class ContactCreationTest extends TestBase {
     @BeforeMethod
     public void ensurePreConditions() {
         app.goTo().groupPage();
-        if (app.group().all().size() == 0) {
+        List<GroupMap> groups = app.group().list();
+        int i = 0;
+        for (GroupMap group : groups) {
+            if (group.getGroupName().equals("test1")) {
+                break;
+            } else {
+                i++;
+            }
+        }
+        if (i == app.group().all().size()) {
             app.group().create(new GroupMap().withGroupName("test1").withGroupHeader("Some Dummy Group"));
         }
     }
