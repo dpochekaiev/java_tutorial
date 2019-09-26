@@ -55,26 +55,29 @@ public class GroupDataGenerator {
     private void saveAsJson(List<GroupMap> groups, File file) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
         String json = gson.toJson(groups);
-        Writer writer = new FileWriter(file);
-        writer.write(json);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(json);
+            // writer.close(); -- redundant operation, as the writer was initialised in the "try" block and don't need the closing action
+        }
     }
 
     private void saveAsXml(List<GroupMap> groups, File file) throws IOException {
         XStream xstream = new XStream();
         xstream.processAnnotations(GroupMap.class);
         String xml = xstream.toXML(groups);
-        Writer writer = new FileWriter(file);
-        writer.write(xml);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+            // writer.close(); -- redundant operation, as the writer was initialised in the "try" block and don't need the closing action
+        }
     }
 
     private void saveAsCsv(List<GroupMap> groups, File groupsFile) throws IOException {
-        Writer writer = new FileWriter(groupsFile);
-        for (GroupMap group : groups) {
-            writer.write(String.format("%s;%s;%s\n", group.getGroupName(), group.getGroupHeader(), group.getGroupFooter()));
+        try (Writer writer = new FileWriter(groupsFile)) {
+            for (GroupMap group : groups) {
+                writer.write(String.format("%s;%s;%s\n", group.getGroupName(), group.getGroupHeader(), group.getGroupFooter()));
+            }
         }
-        writer.close();
+        // writer.close(); -- redundant operation, as the writer was initialised in the "try" block and don't need the closing action
     }
 
     private List<GroupMap> generateGroups(int amountOfGroups) {

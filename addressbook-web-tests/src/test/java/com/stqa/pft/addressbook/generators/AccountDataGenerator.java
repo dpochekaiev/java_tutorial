@@ -57,34 +57,36 @@ public class AccountDataGenerator {
         XStream xstream = new XStream();
         xstream.processAnnotations(AccountMap.class);
         String xml = xstream.toXML(accounts);
-        Writer writer = new FileWriter(file);
-        writer.write(xml);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }
+        // writer.close(); -- redundant operation, as the writer was initialised in the "try" block and don't need the closing action
     }
 
     private void saveAsCsv(List<AccountMap> accounts, File accountsFile) throws IOException {
-        Writer writer = new FileWriter(accountsFile);
-        for (AccountMap account : accounts) {
-            writer.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n",
-                    account.getFirst(),
-                    account.getMiddleName(),
-                    account.getSurname(),
-                    account.getCompany(),
-                    account.getAddress(),
-                    account.getHomePhoneNumber(),
-                    account.getMobilePhoneNumber(),
-                    account.getWorkPhoneNumber(),
-                    account.getEmailFirst(),
-                    account.getEmailSecond(),
-                    account.getEmailThird(),
-                    account.getDayOfBirth(),
-                    account.getMonthOfBirth(),
-                    account.getYearOfBirth(),
-                    account.getGroup(),
-                    account.getPhoto().getAbsolutePath()
-            ));
+        try (Writer writer = new FileWriter(accountsFile)) {
+            for (AccountMap account : accounts) {
+                writer.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n",
+                        account.getFirst(),
+                        account.getMiddleName(),
+                        account.getSurname(),
+                        account.getCompany(),
+                        account.getAddress(),
+                        account.getHomePhoneNumber(),
+                        account.getMobilePhoneNumber(),
+                        account.getWorkPhoneNumber(),
+                        account.getEmailFirst(),
+                        account.getEmailSecond(),
+                        account.getEmailThird(),
+                        account.getDayOfBirth(),
+                        account.getMonthOfBirth(),
+                        account.getYearOfBirth(),
+                        account.getGroup(),
+                        account.getPhoto().getAbsolutePath()
+                ));
+            }
         }
-        writer.close();
+        // writer.close(); -- redundant operation, as the writer was initialised in the "try" block and don't need the closing action
     }
 
     private List<AccountMap> generateAccounts(int amountOfAccounts) {

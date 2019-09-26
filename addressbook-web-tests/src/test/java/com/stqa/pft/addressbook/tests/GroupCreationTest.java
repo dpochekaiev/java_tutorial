@@ -34,31 +34,33 @@ public class GroupCreationTest extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml() throws IOException {
-      //  List<Object[]> list = new ArrayList<Object[]>();
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
         String xml = "";
         String line = reader.readLine();
         while (line != null) {
-            /*
-// Reading the CSV file
-            String[] splittedValues = line.split(";");
-            list.add(new Object[] {new GroupMap()
-                    .withGroupName(splittedValues[0])
-                    .withGroupHeader(splittedValues[1])
-                    .withGroupFooter(splittedValues[2])});
-
-             */
-// Reading the XML file
             xml += line;
             line = reader.readLine();
         }
         XStream xstream = new XStream();
         xstream.processAnnotations(GroupMap.class);
         List<GroupMap> groups = (List<GroupMap>) xstream.fromXML(xml);
-// Returning data from the CSV file
-      /*  return list.iterator(); */
-// Returning data from the XML file
         return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> validGroupsFromCsv() throws IOException {
+        List<Object[]> list = new ArrayList<Object[]>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
+        String line = reader.readLine();
+        while (line != null) {
+            String[] splittedValues = line.split(";");
+            list.add(new Object[] {new GroupMap()
+                    .withGroupName(splittedValues[0])
+                    .withGroupHeader(splittedValues[1])
+                    .withGroupFooter(splittedValues[2])});
+            line = reader.readLine();
+        }
+        return list.iterator();
     }
 
     @DataProvider
@@ -71,7 +73,7 @@ public class GroupCreationTest extends TestBase {
         return list.iterator();
     }
 
-    @Test(dataProvider = "validGroupsFromJson")
+    @Test(dataProvider = "validGroupsFromCsv")
     public void testGroupCreation(GroupMap testGroup) throws Exception {
 // preparation part
         System.out.println("================================================");

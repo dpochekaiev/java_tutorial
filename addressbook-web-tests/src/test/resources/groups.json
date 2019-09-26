@@ -8,15 +8,5 @@
     "groupName": "test 1",
     "groupHeader": "header \n1",
     "groupFooter": "footer \n1"
-  },
-  {
-    "groupName": "test 2",
-    "groupHeader": "header \n2",
-    "groupFooter": "footer \n2"
-  },
-  {
-    "groupName": "test 3",
-    "groupHeader": "header \n3",
-    "groupFooter": "footer \n3"
   }
 ]
