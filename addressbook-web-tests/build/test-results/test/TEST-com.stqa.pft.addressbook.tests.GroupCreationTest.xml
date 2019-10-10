@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stqa.pft.addressbook.tests.GroupCreationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-10-10T12:42:43" hostname="pochekaev" time="10.67">
+  <properties/>
+  <testcase name="testBadGroupCreation[0](GroupMap{groupId='2147483647', groupName='test'1''})" classname="com.stqa.pft.addressbook.tests.GroupCreationTest" time="4.793"/>
+  <testcase name="testGroupCreation[0](GroupMap{groupId='2147483647', groupName='test 0'})" classname="com.stqa.pft.addressbook.tests.GroupCreationTest" time="1.968"/>
+  <testcase name="testGroupCreation[1](GroupMap{groupId='2147483647', groupName='test 1'})" classname="com.stqa.pft.addressbook.tests.GroupCreationTest" time="1.934"/>
+  <testcase name="testGroupCreation[2](GroupMap{groupId='2147483647', groupName='test 2'})" classname="com.stqa.pft.addressbook.tests.GroupCreationTest" time="1.972"/>
+  <system-out><![CDATA[================================================
+Running testGroupCreation
+Groups before test: 11
+Groups after test: 11
+================================================
+Running testGroupCreation
+Groups before test: 11
+Groups after test: 12
+================================================
+Running testGroupCreation
+Groups before test: 12
+Groups after test: 13
+================================================
+Running testGroupCreation
+Groups before test: 13
+Groups after test: 14
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

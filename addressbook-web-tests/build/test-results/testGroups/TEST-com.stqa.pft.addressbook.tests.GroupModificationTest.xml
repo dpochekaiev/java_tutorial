@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stqa.pft.addressbook.tests.GroupModificationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-10T12:53:33" hostname="pochekaev" time="2.011">
+  <properties/>
+  <testcase name="testGroupModification" classname="com.stqa.pft.addressbook.tests.GroupModificationTest" time="2.011"/>
+  <system-out><![CDATA[================================================
+Running testGroupModification
+Initially groups before test: 16
+Groups before test: 16
+Groups after test: 16
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stqa.pft.addressbook.tests.ContactRemoveTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-10T12:52:45" hostname="pochekaev" time="16.894">
+  <properties/>
+  <testcase name="testContactRemove" classname="com.stqa.pft.addressbook.tests.ContactRemoveTest" time="16.894"/>
+  <system-out><![CDATA[================================================
+Running testContactRemove
+Contacts before test: 1
+Contacts after test: 0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

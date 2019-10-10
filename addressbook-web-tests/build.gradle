@@ -7,10 +7,22 @@ repositories {
 dependencies {
 //    implementation 'org.testng:testng:7.0.0-beta3'  // less strict assertions (e.g.: 25 == 25.0) AND _less_ info while test failures
     implementation 'org.testng:testng:6.9.10'  // more strict assertions, (e.g.: 25 != 25.0) AND more info while test failures
-    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    implementation 'it.ozimov:hamcrest:2.0.0'
-    implementation 'com.beust:jcommander:1.78'
-    implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59' // browser control
+    implementation 'it.ozimov:hamcrest:2.0.0'                       // assertions like assertThat()
+    implementation 'com.beust:jcommander:1.78'                      // parsing command prompt parameters
+    implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'      // XML interface
+    implementation 'com.google.code.gson:gson:2.8.5'                // JSON interface
 //    compile("it.ozimov:hamcrest:2.0.0")
+}
+
+task testGroups (type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
+
+task testContacts (type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-contacts.xml'
+    }
 }

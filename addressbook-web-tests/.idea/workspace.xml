@@ -2,17 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.stqa.pft.addressbook.tests.ContactRemoveTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.stqa.pft.addressbook.tests.GroupCreationTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.stqa.pft.addressbook.tests.GroupModificationTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.stqa.pft.addressbook.tests.GroupRemoveTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.stqa.pft.addressbook.tests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testContacts/classes/com.stqa.pft.addressbook.tests.ContactRemoveTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testContacts/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testContacts/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testContacts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testContacts/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testContacts/packages/com.stqa.pft.addressbook.tests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/classes/com.stqa.pft.addressbook.tests.GroupCreationTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/classes/com.stqa.pft.addressbook.tests.GroupModificationTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/classes/com.stqa.pft.addressbook.tests.GroupRemoveTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/testGroups/packages/com.stqa.pft.addressbook.tests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/test/testng-contacts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/test/testng-groups.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.stqa.pft.addressbook.tests.ContactRemoveTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.stqa.pft.addressbook.tests.GroupCreationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.stqa.pft.addressbook.tests.GroupModificationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.stqa.pft.addressbook.tests.GroupRemoveTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testContacts/TEST-com.stqa.pft.addressbook.tests.ContactRemoveTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testContacts/binary/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testContacts/binary/output.bin.idx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testContacts/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testGroups/TEST-com.stqa.pft.addressbook.tests.GroupCreationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testGroups/TEST-com.stqa.pft.addressbook.tests.GroupModificationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testGroups/TEST-com.stqa.pft.addressbook.tests.GroupRemoveTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testGroups/binary/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testGroups/binary/output.bin.idx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/testGroups/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/testng-contacts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/testng-groups.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/accounts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/accounts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/groups.csv" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/groups.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/groups.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/groups.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/generators/AccountDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/generators/AccountDataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/generators/GroupDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/generators/GroupDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/META-INF/addressbook-web-tests.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/appmanager/ApplicationManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/appmanager/GroupHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/appmanager/NavigationHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/appmanager/SessionHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/model/GroupMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/tests/ContactRemoveTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/tests/GroupModificationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/tests/GroupRemoveTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/stqa/pft/addressbook/tests/TestBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/enchantress_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/groups.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/warrior_logo.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactCreationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/GroupCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/GroupCreationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/accounts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/accounts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/groups.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/groups.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/groups.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/groups.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactModificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactModificationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/GroupModificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/GroupModificationTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +95,16 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sandbox" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\!-Projects\Cengage\Automation\2-Java tutorial\java_tutorial\addressbook-web-tests\src\test\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,27 +118,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreationTest">
-    <configuration name="AccountDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stqa.pft.addressbook.generators.AccountDataGenerator" />
-      <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-c 2 -f src/test/resources/accounts -d xml" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stqa.pft.addressbook.generators.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GroupCreationTest.testGroupCreation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng.xml">
+    <configuration name="ContactCreationTest.testCurrentDirectory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.GroupCreationTest.testGroupCreation&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.ContactCreationTest.testCurrentDirectory&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -107,6 +150,16 @@
       <option name="PACKAGE_NAME" value="com.stqa.pft.addressbook.tests" />
       <option name="MAIN_CLASS_NAME" value="com.stqa.pft.addressbook.tests.ContactCreationTest" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -147,19 +200,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AccountDataGenerator" />
+      <item itemvalue="Gradle.ContactCreationTest.testCurrentDirectory" />
       <item itemvalue="TestNG.com.stqa.pft.addressbook.tests" />
       <item itemvalue="TestNG.ContactCreationTest" />
       <item itemvalue="TestNG.GroupCreationTest" />
-      <item itemvalue="Gradle.GroupCreationTest.testGroupCreation" />
+      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng.xml" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GroupCreationTest" />
-        <item itemvalue="Gradle.GroupCreationTest.testGroupCreation" />
+        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng.xml" />
         <item itemvalue="TestNG.ContactCreationTest" />
+        <item itemvalue="Gradle.ContactCreationTest.testCurrentDirectory" />
         <item itemvalue="TestNG.com.stqa.pft.addressbook.tests" />
-        <item itemvalue="Application.AccountDataGenerator" />
+        <item itemvalue="TestNG.GroupCreationTest" />
       </list>
     </recent_temporary>
   </component>

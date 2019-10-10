@@ -51,7 +51,7 @@ public class ContactCreationTest extends TestBase {
         }
     }
 
-    @Test(dataProvider = "validAccounts") //(enabled = false)
+    @Test /*(enabled = false) */ (dataProvider = "validAccounts")
     public void testContactCreation(AccountMap newContact) {
 // preparation part
         System.out.println("================================================");
@@ -73,9 +73,15 @@ public class ContactCreationTest extends TestBase {
 
     @Test (enabled = false)
     public void testCurrentDirectory() {
+
         File photo = new File("src/test/resources/warrior_logo.png");
         System.out.println(photo.getAbsolutePath());
         System.out.println(photo.exists());
+
+        System.out.println("0.1+0.2 == 0.3");
+        System.out.println(0.1+0.2 == 0.3);
+        System.out.println(0.1+0.2);
+
     }
 
 }

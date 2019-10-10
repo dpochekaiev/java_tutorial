@@ -6,6 +6,7 @@ addressbook-web-tests/.idea/workspace.xml
 addressbook-web-tests/.idea/misc.xml
 *.class
 /*.class
+*tmp
 addressbook-web-tests/out/test/classes/com/stqa/pft/addressbook/appmanager/*.class
 sandbox/out/test/classes/com/stqa/pft/addressbook/appmanager/*.class
 addressbook-web-tests/out/test/classes/com/stqa/pft/addressbook/tests/*.class

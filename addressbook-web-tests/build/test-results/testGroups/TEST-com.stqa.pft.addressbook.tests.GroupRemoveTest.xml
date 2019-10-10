@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stqa.pft.addressbook.tests.GroupRemoveTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-10T12:53:36" hostname="pochekaev" time="1.161">
+  <properties/>
+  <testcase name="testRemoveGroup" classname="com.stqa.pft.addressbook.tests.GroupRemoveTest" time="1.161"/>
+  <system-out><![CDATA[================================================
+Running testRemoveGroup
+Groups before test: 16
+Groups after test: 15
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
