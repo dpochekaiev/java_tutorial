@@ -24,7 +24,7 @@ public class AccountDataGenerator {
     public int accountsDataCount;
 
     @Parameter(names = "-f", description = "Accounts data target filename")
-    public String accountsDataFileName;
+    public String accountsDataFileName; // it is expected to be "accounts"
 
     @Parameter(names = "-d", description = "Accounts data target file format: csv, xml, json")
     public String accountsDataFileFormat;
