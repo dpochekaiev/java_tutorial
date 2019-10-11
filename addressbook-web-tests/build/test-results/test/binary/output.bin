@@ -1,33 +1,0 @@
-2================================================
-Running testGroupCreation
-Groups before test: 11
-Groups after test: 11
-2================================================
-Running testGroupCreation
-Groups before test: 11
-Groups after test: 12
-2================================================
-Running testGroupCreation
-Groups before test: 12
-Groups after test: 13
-2================================================
-Running testGroupCreation
-Groups before test: 13
-Groups after test: 14
-2================================================
-Running testGroupModification
-"Initially groups before test: 14
-Groups before test: 14
-Groups after test: 14
-	2================================================
-	Running testRemoveGroup
-	Groups before test: 14
-	Groups after test: 13
-
-2================================================
-
-Running testContactRemove
-
-Contacts before test: 1
-
-Contacts after test: 0

@@ -111,7 +111,9 @@ public class AccountDataGenerator {
                     .withAddress(refactorBackSlash(String.format(" \n   Some address \n \n with several rows %s", i)))
                     .withHomePhoneNumber(String.format("123456789%s", i))
                     .withMobilePhoneNumber(String.format("+38(066)644 22 1%s", i))
-                    .withWorkPhoneNumber(""+i+i+i+i+i+i+i+i+i+i)
+                    //TODO: the (i+1) in the following line is a workaround of case:
+                    // a phone number starting with zero automatically receives "+" at the beginning on the main page
+                    .withWorkPhoneNumber(""+(i+1)+i+i+i+i+i+i+i+i+i)
                     .withEmailFirst(String.format("first_email_%s@mail.com", i))
                     .withEmailSecond(String.format("Second_email_%s@some.domain", i))
                     .withEmailThird(String.format("%s_Email_No_3@mail.ru", i))
