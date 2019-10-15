@@ -41,6 +41,7 @@ public class GroupModificationTest extends TestBase {
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList.without(groupForModification).withAdded(newGroup)));
+        System.out.println("Test passed");
     }
 
 

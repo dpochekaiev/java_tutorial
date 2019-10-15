@@ -1,7 +1,7 @@
 <list>
   <account>
     <first>Name 0</first>
-    <middleName>W</middleName>
+    <middleName>B</middleName>
     <surname>Surname 0</surname>
     <company>Company name 0</company>
     <address> \n   Some address \n \n with several rows 0</address>
@@ -11,15 +11,15 @@
     <emailFirst>first_email_0@mail.com</emailFirst>
     <emailSecond>Second_email_0@some.domain</emailSecond>
     <emailThird>0_Email_No_3@mail.ru</emailThird>
-    <dayOfBirth>23</dayOfBirth>
-    <monthOfBirth>March</monthOfBirth>
-    <yearOfBirth>1980</yearOfBirth>
+    <dayOfBirth>2</dayOfBirth>
+    <monthOfBirth>February</monthOfBirth>
+    <yearOfBirth>1936</yearOfBirth>
     <group>test1</group>
     <photo>src\test\resources\warrior_logo.png</photo>
   </account>
   <account>
     <first>Name 1</first>
-    <middleName>J</middleName>
+    <middleName>G</middleName>
     <surname>Surname 1</surname>
     <company>Company name 1</company>
     <address> \n   Some address \n \n with several rows 1</address>
@@ -29,9 +29,9 @@
     <emailFirst>first_email_1@mail.com</emailFirst>
     <emailSecond>Second_email_1@some.domain</emailSecond>
     <emailThird>1_Email_No_3@mail.ru</emailThird>
-    <dayOfBirth>10</dayOfBirth>
-    <monthOfBirth>February</monthOfBirth>
-    <yearOfBirth>1967</yearOfBirth>
+    <dayOfBirth>7</dayOfBirth>
+    <monthOfBirth>April</monthOfBirth>
+    <yearOfBirth>1935</yearOfBirth>
     <group>test1</group>
     <photo>src\test\resources\warrior_logo.png</photo>
   </account>

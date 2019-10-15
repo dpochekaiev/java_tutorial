@@ -19,17 +19,28 @@ task testGroups (type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
 }
 
 task testContacts (type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
     }
-}
-/*
-task dataGenerators (type: Test) {
-    useTestNG {
-        suits 'src/test/resources/testng-generators.xml'
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
     }
 }
-*/
+
+//D:\!-Projects\Cengage\Automation\2-Java tutorial\java_tutorial\addressbook-web-tests>gradlew -Pbrowser=firefox testGroups
+//D:\!-Projects\Cengage\Automation\2-Java tutorial\java_tutorial\addressbook-web-tests>gradlew -Pbrowser=firefox testContacts
+
+//D:\!-Projects\Cengage\Automation\2-Java tutorial\java_tutorial\addressbook-web-tests>gradlew -Pbrowser=firefox -Ptarget=local testGroups
+//D:\!-Projects\Cengage\Automation\2-Java tutorial\java_tutorial\addressbook-web-tests>gradlew -Pbrowser=firefox -Ptarget=local testContacts

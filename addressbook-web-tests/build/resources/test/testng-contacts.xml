@@ -1,21 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- program arguments: -->
+<!-- VM Options: "-ea -Dbrowser=firefox" -->
 
 <suite name="Suite1" verbose="1" >
     <test name="Contacts">
         <classes>
-            <class name="com.stqa.pft.addressbook.tests.ContactCreationTest"/>
-
             <class name="com.stqa.pft.addressbook.tests.ContactRemoveTest"/>
-            
+            <!-- TODO: temporary do not delete all old records -->
+
+
+            <class name="com.stqa.pft.addressbook.tests.ContactCreationTest"/>
             <class name="com.stqa.pft.addressbook.tests.ContactAddressTest"/>
             <class name="com.stqa.pft.addressbook.tests.ContactDetailsTest"/>
             <class name="com.stqa.pft.addressbook.tests.ContactEmailTest"/>
             <class name="com.stqa.pft.addressbook.tests.ContactPhoneTest"/>
             <class name="com.stqa.pft.addressbook.tests.ContactModificationTest"/>
-            <class name="com.stqa.pft.addressbook.tests.ContactRemoveTest"/>
-            <!-- run "ContactRemoveTest" additional times to clean up the environment -->
-            <class name="com.stqa.pft.addressbook.tests.ContactRemoveTest"/>
-            <class name="com.stqa.pft.addressbook.tests.ContactRemoveTest"/>
             <class name="com.stqa.pft.addressbook.tests.ContactRemoveTest"/>
         </classes>
     </test>

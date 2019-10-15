@@ -1,13 +1,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- program arguments: -->
+<!-- VM Options: "-ea -Dbrowser=firefox" -->
 
 <suite name="Suite1" verbose="1" >
     <test name="Groups" >
         <classes>
+            <class name="com.stqa.pft.addressbook.tests.GroupRemoveTest"/>
+            <!-- TODO: temporary do not delete all old records -->
+
+
+
             <class name="com.stqa.pft.addressbook.tests.GroupCreationTest"/>
             <class name="com.stqa.pft.addressbook.tests.GroupModificationTest"/>
-            <class name="com.stqa.pft.addressbook.tests.GroupRemoveTest"/>
-            <!-- run "GroupRemoveTest" additional times to clean up the environment -->
-            <class name="com.stqa.pft.addressbook.tests.GroupRemoveTest"/>
             <class name="com.stqa.pft.addressbook.tests.GroupRemoveTest"/>
         </classes>
     </test>

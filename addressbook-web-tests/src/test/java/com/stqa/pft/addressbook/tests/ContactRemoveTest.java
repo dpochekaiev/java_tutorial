@@ -24,18 +24,22 @@ public class ContactRemoveTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testContactRemove");
-        Accounts beforeTestContactsList = app.contact().all();
-        AccountMap contactToDelete = beforeTestContactsList.iterator().next();
+        int amountOfAccounts = app.contact().list().size();
+        for (int i = 1; i<= amountOfAccounts; i++) {
+            System.out.println("Iteration No"+i);
+            Accounts beforeTestContactsList = app.contact().all();
+            AccountMap contactToDelete = beforeTestContactsList.iterator().next();
 // test part
-        app.contact().remove(contactToDelete);
+            app.contact().remove(contactToDelete);
 
 // outcoming part
-        assertThat(app.contact().count(), equalTo(beforeTestContactsList.size() - 1));
-        Accounts afterTestContactsList = app.contact().all();
-        System.out.println("Contacts before test: " + beforeTestContactsList.size());
-        System.out.println("Contacts after test: " + afterTestContactsList.size());
-        assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToDelete)));
-
+            assertThat(app.contact().count(), equalTo(beforeTestContactsList.size() - 1));
+            Accounts afterTestContactsList = app.contact().all();
+            System.out.println("Contacts before test: " + beforeTestContactsList.size());
+            System.out.println("Contacts after test: " + afterTestContactsList.size());
+            assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToDelete)));
+            System.out.println("Test passed");
+        }
     }
 
 

@@ -29,18 +29,23 @@ public class GroupRemoveTest extends TestBase {
 // preparation part
         System.out.println("================================================");
         System.out.println("Running testRemoveGroup");
-        Groups beforeTestGroupsList = app.group().all();
-        GroupMap groupForDeletion = beforeTestGroupsList.iterator().next();
+        int amountOfGroups = app.group().all().size();
+        for (int i = 1; i <= amountOfGroups; i++) {
+            System.out.println("Iteration No" + i);
+            Groups beforeTestGroupsList = app.group().all();
+            GroupMap groupForDeletion = beforeTestGroupsList.iterator().next();
 
 // test part
-        app.group().delete(groupForDeletion);
+            app.group().delete(groupForDeletion);
 
 // outcoming part
-        assertThat(app.group().count(), equalTo(beforeTestGroupsList.size() - 1));
-        Groups afterTestGroupsList = app.group().all();
-        System.out.println("Groups before test: " + beforeTestGroupsList.size());
-        System.out.println("Groups after test: " + afterTestGroupsList.size());
-        assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList.without(groupForDeletion)));
+            assertThat(app.group().count(), equalTo(beforeTestGroupsList.size() - 1));
+            Groups afterTestGroupsList = app.group().all();
+            System.out.println("Groups before test: " + beforeTestGroupsList.size());
+            System.out.println("Groups after test: " + afterTestGroupsList.size());
+            assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList.without(groupForDeletion)));
+            System.out.println("Test passed");
+        }
     }
 
 }

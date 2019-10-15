@@ -8,7 +8,7 @@ addressbook-web-tests/.idea/misc.xml
 /*.class
 *tmp
 addressbook-web-tests/build/test-results/*
-addressbook-web-tests/build/reports/t
+addressbook-web-tests/build/reports/
 addressbook-web-tests/out/test/classes/com/stqa/pft/addressbook/appmanager/*.class
 sandbox/out/test/classes/com/stqa/pft/addressbook/appmanager/*.class
 addressbook-web-tests/out/test/classes/com/stqa/pft/addressbook/tests/*.class

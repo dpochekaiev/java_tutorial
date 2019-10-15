@@ -37,6 +37,8 @@ public class ContactModificationTest extends TestBase {
                 .withMiddleName("E").withSurname("EditedSurname").withCompany("EditedCompany")
                 .withAddress("EditedAddress").withHomePhoneNumber("0800000111000").withMobilePhoneNumber("222")
                 .withWorkPhoneNumber("333").withEmailFirst("EdItEd@MaIl.DoT.cOm").withMonthOfBirth("April")
+                // Clearing the value of Day of Birth field
+                .withDayOfBirth("-")
                 .withYearOfBirth("2000").withGroup("test1")
                 .withPhoto(new File("src/test/resources/enchantress_logo.png"));
 
@@ -58,6 +60,7 @@ public class ContactModificationTest extends TestBase {
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         assertThat(afterTestContactsList, equalTo((beforeTestContactsList).without(contactToEdit).withAdded(editedContact
                 .withContactID(afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt()))));
+        System.out.println("Test passed");
     }
 
 }

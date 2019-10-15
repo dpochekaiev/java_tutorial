@@ -7,10 +7,12 @@ import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    static String testBrowser = BrowserType.CHROME;    // Chrome
-//    String testBrowser = BrowserType.FIREFOX;   // FireFox
-//    String testBrowser = BrowserType.EDGE;      // Edge
-//    String testBrowser = BrowserType.IE;      // Internet Explorer
+    static String testBrowser = System.getProperty("browser", BrowserType.CHROME);
+
+//    static String testBrowser = BrowserType.CHROME;    // Chrome
+//    static String testBrowser = BrowserType.FIREFOX;   // FireFox
+//    static String testBrowser = BrowserType.EDGE;      // Edge
+//    static String testBrowser = BrowserType.IE;      // Internet Explorer
 
     protected static final ApplicationManager app = new ApplicationManager(testBrowser);
 

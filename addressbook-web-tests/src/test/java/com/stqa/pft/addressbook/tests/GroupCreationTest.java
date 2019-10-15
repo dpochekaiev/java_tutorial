@@ -73,7 +73,7 @@ public class GroupCreationTest extends TestBase {
         return list.iterator();
     }
 
-    @Test(dataProvider = "validGroupsFromCsv")
+    @Test(dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupMap testGroup) throws Exception {
 // preparation part
         System.out.println("================================================");
@@ -110,6 +110,7 @@ public class GroupCreationTest extends TestBase {
         System.out.println("Groups before test: " + beforeTestGroupsList.size());
         System.out.println("Groups after test: " + afterTestGroupsList.size());
         assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList));
+        System.out.println("Test passed");
     }
 
 }
