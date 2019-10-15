@@ -12,6 +12,7 @@ dependencies {
     implementation 'com.beust:jcommander:1.78'                      // parsing command prompt parameters
     implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'      // XML interface
     implementation 'com.google.code.gson:gson:2.8.5'                // JSON interface
+    implementation 'ch.qos.logback:logback-classic:1.3.0-alpha4'    // Logging to file
 //    compile("it.ozimov:hamcrest:2.0.0")
 }
 
