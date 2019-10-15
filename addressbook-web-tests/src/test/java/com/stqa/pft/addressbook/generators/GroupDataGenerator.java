@@ -17,6 +17,8 @@ import java.util.List;
 
 public class GroupDataGenerator {
 
+    // program arguments:
+    // -c 2 -f src/test/resources/groups -d json
     @Parameter(names = "-c", description = "Groups count")
     public int groupsDataCount;
 

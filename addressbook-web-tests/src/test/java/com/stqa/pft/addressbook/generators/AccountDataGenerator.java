@@ -20,6 +20,8 @@ public class AccountDataGenerator {
     private String months[] = {"January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"};
 
+    // program arguments:
+    // -c 2 -f src/test/resources/accounts -d xml
     @Parameter(names = "-c", description = "Accounts count")
     public int accountsDataCount;
 
