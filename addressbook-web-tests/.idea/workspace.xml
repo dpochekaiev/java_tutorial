@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/AccountMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/AccountMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactCreationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/HbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/HbConnectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +92,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml">
-    <configuration name="ContactDetailsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ContactAddressTest">
+    <configuration name="ContactAddressTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.ContactDetailsTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.ContactAddressTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -238,18 +230,18 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" />
-      <item itemvalue="Gradle.ContactDetailsTest" />
       <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" />
       <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" />
       <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" />
+      <item itemvalue="Gradle.ContactAddressTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ContactAddressTest" />
         <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" />
         <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" />
         <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" />
         <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" />
-        <item itemvalue="Gradle.ContactDetailsTest" />
       </list>
     </recent_temporary>
   </component>
