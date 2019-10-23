@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/HbConnectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testng-hb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/GroupMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/GroupMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/AccountMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/AccountMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactCreationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/HbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/HbConnectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,13 +100,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.HbConnectionTest">
-    <configuration name="ContactCreationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml">
+    <configuration name="ContactDetailsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.ContactCreationTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.ContactDetailsTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -122,69 +121,87 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DbConnectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.DbConnectionTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
+    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-contacts.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="DbConnectionTest.testDbConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.DbConnectionTest.testDbConnection&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanDBTests" />
-            <option value=":dBTests" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="HbConnectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.HbConnectionTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanHBTests" />
-            <option value=":hBTests" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
+    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-contacts.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-db.xml" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-groups.xml" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-hb.xml" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="SUITE" />
@@ -220,19 +237,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.DbConnectionTest" />
-      <item itemvalue="Gradle.ContactCreationTest" />
-      <item itemvalue="Gradle.DbConnectionTest.testDbConnection" />
+      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" />
+      <item itemvalue="Gradle.ContactDetailsTest" />
+      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" />
+      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" />
       <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" />
-      <item itemvalue="Gradle.HbConnectionTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.HbConnectionTest" />
         <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" />
-        <item itemvalue="Gradle.DbConnectionTest" />
-        <item itemvalue="Gradle.DbConnectionTest.testDbConnection" />
-        <item itemvalue="Gradle.ContactCreationTest" />
+        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" />
+        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" />
+        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" />
+        <item itemvalue="Gradle.ContactDetailsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -302,6 +319,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactPhoneTest.java</url>
           <line>31</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/ContactDetailsTest.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/appmanager/ContactHelper.java</url>
+          <line>268</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/AccountMap.java</url>
+          <line>168</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

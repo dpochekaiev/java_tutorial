@@ -69,6 +69,9 @@ public class ContactCreationTest extends TestBase {
         System.out.println("Contacts after test: " + afterTestContactsList.size());
         assertThat(afterTestContactsList, equalTo(beforeTestContactsList.withAdded(newContact.
                 withContactID(afterTestContactsList.stream().mapToInt((c) -> c.getContactID()).max().getAsInt()))));
+        for (AccountMap a : afterTestContactsList) {
+            System.out.println(a);
+        }
         System.out.println("Test passed");
     }
 

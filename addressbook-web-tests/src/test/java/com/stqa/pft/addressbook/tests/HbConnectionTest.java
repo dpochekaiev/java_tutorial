@@ -1,5 +1,7 @@
 package com.stqa.pft.addressbook.tests;
 
+import com.stqa.pft.addressbook.model.AccountMap;
+import com.stqa.pft.addressbook.model.Accounts;
 import com.stqa.pft.addressbook.model.GroupMap;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,6 +41,11 @@ public class HbConnectionTest {
         List<GroupMap>  result = session.createQuery( "from GroupMap" ).list();
         for (GroupMap group : result ) {
             System.out.println(group);
+        }
+
+        List<AccountMap>  accounts = session.createQuery( "from AccountMap where deprecated = '0'" ).list();
+        for (AccountMap account : accounts ) {
+            System.out.println(account);
         }
         session.getTransaction().commit();
         session.close();

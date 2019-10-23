@@ -2,36 +2,91 @@ package com.stqa.pft.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
+
 @XStreamAlias("account")
+@Entity
+@Table(name = "addressbook")
 public class AccountMap {
+
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int contactID = 0;
+
+    @Transient
     private String details;
+
+    @Column(name = "firstname")
     private  String first;
+
+    @Column(name = "middlename")
     private  String middleName;
+
+    @Column(name = "lastname")
     private  String surname;
+
+    @Column(name = "company")
     private  String company;
+
+    @Column(name = "address")
+    @Type(type = "text")
     private  String address;
+
+    @Transient
     private  String phones;
+
+    @Column(name = "home")
+    @Type(type = "text")
     private  String homePhoneNumber;
+
+    @Column(name = " mobile")
+    @Type(type = "text")
     private  String mobilePhoneNumber;
+
+    @Column(name = "work")
+    @Type(type = "text")
     private  String workPhoneNumber;
+
+    @Transient
     private  String emails;
+
+    @Column(name = "email")
+    @Type(type = "text")
     private  String emailFirst;
+
+    @Column(name = "email2")
+    @Type(type = "text")
     private  String emailSecond;
+
+    @Column(name = "email3")
+    @Type(type = "text")
     private  String emailThird;
-    private  String dayOfBirth;
+
+    @Column(name = "bday")
+    @Type(type = "byte")
+    private  Byte dayOfBirth;
+
+    @Column(name = " bmonth")
     private  String monthOfBirth;
+
+    @Column(name = "byear")
     private  String yearOfBirth;
+
+    @Transient
     private  String group;
-    private File photo;
+
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
 
     public AccountMap withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -111,8 +166,13 @@ public class AccountMap {
     }
 
     public AccountMap withDayOfBirth(String dayOfBirth) {
-        this.dayOfBirth = dayOfBirth;
-        return this;
+        if (dayOfBirth.equals("") | dayOfBirth.equals("-")) {
+            this.dayOfBirth = null;
+        } else {
+            this.dayOfBirth = Byte.parseByte(dayOfBirth);
+        }
+            return this;
+
     }
 
     public AccountMap withMonthOfBirth(String monthOfBirth) {
@@ -196,7 +256,11 @@ public class AccountMap {
     }
 
     public String getDayOfBirth() {
-        return dayOfBirth;
+        if (dayOfBirth == null) {
+            return "";
+        } else {
+            return dayOfBirth.toString();
+        }
     }
 
     public String getMonthOfBirth() {
@@ -212,7 +276,10 @@ public class AccountMap {
     }
 
     public File getPhoto() {
-        return photo;
+        if (photo != null) {
+            return new File(photo);
+        }
+        return null;
     }
 
     @Override
