@@ -1,6 +1,10 @@
 package com.stqa.pft.addressbook.tests;
 
 import com.stqa.pft.addressbook.appmanager.ApplicationManager;
+import com.stqa.pft.addressbook.model.GroupMap;
+import com.stqa.pft.addressbook.model.Groups;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
@@ -8,10 +12,14 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TestBase {
 
-    //Logger logger = LoggerFactory.getLogger(TestBase.class);
+    Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     static String testBrowser = System.getProperty("browser", BrowserType.CHROME);
 
@@ -32,6 +40,19 @@ public class TestBase {
     @AfterSuite(alwaysRun = true)
     public void tearDown() throws Exception {
         app.stop();
+    }
+
+    public void verifyGroupListInUI() {
+        if ( !Boolean.getBoolean("verifyUI") ) {
+            logger.info("skipping UI groups check");
+            return;
+        }
+        Groups dBGroupsList = app.db().groups();
+        Groups uIGroupsList = app.group().all();
+        assertThat(uIGroupsList, equalTo(dBGroupsList.stream()
+                .map((g) -> new GroupMap().withGroupId(g.getGroupId()).withGroupName(g.getGroupName()))
+                .collect(Collectors.toSet())));
+        logger.info("UI groups checked successfully");
     }
 
 //    @BeforeMethod (alwaysRun = true)

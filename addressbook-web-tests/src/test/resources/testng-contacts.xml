@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <!-- program arguments: -->
-<!-- VM Options: "-ea -Dbrowser=firefox" -->
+<!-- VM Options: "-ea -Dbrowser=firefox" -DverifyUI=true-->
 
 <suite name="Suite1" verbose="1" >
     <test name="Contacts">

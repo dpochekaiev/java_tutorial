@@ -1,5 +1,8 @@
 package com.stqa.pft.addressbook.tests;
 
+// VM options:
+// -ea -DverifyUI=true
+
 import com.stqa.pft.addressbook.model.GroupMap;
 import com.stqa.pft.addressbook.model.Groups;
 import org.slf4j.Logger;
@@ -64,9 +67,9 @@ public class GroupModificationTest extends TestBase {
 //        System.out.println("Groups before test: " + beforeTestGroupsList.size());
 //        System.out.println("Groups after test: " + afterTestGroupsList.size());
         assertThat(afterTestGroupsList, equalTo(beforeTestGroupsList.without(groupForModification).withAdded(newGroup)));
+        verifyGroupListInUI();
 //        System.out.println("Test passed");
         logger.warn("Test passed");
     }
-
 
 }
