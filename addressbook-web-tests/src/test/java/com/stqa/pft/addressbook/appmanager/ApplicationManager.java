@@ -23,6 +23,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
+    private DbHelper dbHelper;
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -37,6 +38,8 @@ public class ApplicationManager {
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+        dbHelper = new DbHelper();
 
         switch (browser) {
             case BrowserType.FIREFOX:
@@ -136,6 +139,14 @@ public class ApplicationManager {
      */
     public ContactHelper contact() {
         return contactHelper;
+    }
+
+    /**
+     * Method returns the data base helper
+     * to have an access to the application database through the direct requests
+     */
+    public DbHelper db() {
+        return dbHelper;
     }
 
 }

@@ -24,6 +24,22 @@ public class GroupMap {
     @Column(name = "group_name")
     private  String groupName;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GroupMap groupMap = (GroupMap) o;
+        return groupId == groupMap.groupId &&
+                Objects.equals(groupName, groupMap.groupName) &&
+                Objects.equals(groupHeader, groupMap.groupHeader) &&
+                Objects.equals(groupFooter, groupMap.groupFooter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(groupId, groupName, groupHeader, groupFooter);
+    }
+
     @Expose
     @Column(name = "group_header")
     @Type(type = "text")
@@ -56,20 +72,6 @@ public class GroupMap {
                 "groupId='" + groupId + '\'' +
                 ", groupName='" + groupName + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        GroupMap groupMap = (GroupMap) o;
-        return groupId == groupMap.groupId &&
-                Objects.equals(groupName, groupMap.groupName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(groupId, groupName);
     }
 
     public GroupMap withGroupId(int newGroupID) {

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="" />
+    <list default="true" id="0cceeb99-c7dd-4f7d-a315-a072b7bf23f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/appmanager/DbHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/groups.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/groups.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/appmanager/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/Accounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/GroupMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/GroupMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/Groups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/model/Groups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/GroupModificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stqa/pft/addressbook/tests/GroupModificationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/groups.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/groups.json" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,20 +102,34 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ContactAddressTest">
-    <configuration name="ContactAddressTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml">
+    <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stqa.pft.addressbook.generators.GroupDataGenerator" />
+      <module name="addressbook-web-tests.test" />
+      <option name="PROGRAM_PARAMETERS" value="-c 2 -f src/test/resources/groups -d json" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stqa.pft.addressbook.generators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GroupCreationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.ContactAddressTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.GroupCreationTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":cleanTestContacts" />
-            <option value=":testContacts" />
+            <option value=":cleanTestGroups" />
+            <option value=":testGroups" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -113,91 +137,55 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-contacts.xml" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="GroupModificationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.GroupModificationTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTestGroups" />
+            <option value=":testGroups" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-contacts.xml" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-db.xml" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="GroupRemoveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.stqa.pft.addressbook.tests.GroupRemoveTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTestGroups" />
+            <option value=":testGroups" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-groups.xml" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="SUITE" />
-      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/testng-hb.xml" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <option name="VM_PARAMETERS" value="-ea -Dbrowser=firefox" />
+      <option name="VM_PARAMETERS" value="-ea -Dbrowser=chrome" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
       <option name="TEST_SEARCH_SCOPE">
@@ -229,19 +217,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" />
+      <item itemvalue="Application.GroupDataGenerator" />
+      <item itemvalue="Gradle.GroupModificationTest" />
+      <item itemvalue="Gradle.GroupCreationTest" />
+      <item itemvalue="Gradle.GroupRemoveTest" />
       <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" />
-      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" />
-      <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" />
-      <item itemvalue="Gradle.ContactAddressTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ContactAddressTest" />
-        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-db.xml" />
-        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-hb.xml" />
         <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-groups.xml" />
-        <item itemvalue="TestNG.D:/!-Projects/Cengage/Automation/2-Java tutorial/java_tutorial/addressbook-web-tests/src/test/resources/testng-contacts.xml" />
+        <item itemvalue="Gradle.GroupModificationTest" />
+        <item itemvalue="Gradle.GroupRemoveTest" />
+        <item itemvalue="Gradle.GroupCreationTest" />
+        <item itemvalue="Application.GroupDataGenerator" />
       </list>
     </recent_temporary>
   </component>
